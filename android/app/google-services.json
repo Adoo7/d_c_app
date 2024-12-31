@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "986401935827",
+    "project_id": "data-collection-app-11474",
+    "storage_bucket": "data-collection-app-11474.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:986401935827:android:267701e2ab409e0ecadf26",
+        "android_client_info": {
+          "package_name": "com.datacollection.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHvjb_1y4xzvKd6NAo2XyexPVb1Qb6xP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

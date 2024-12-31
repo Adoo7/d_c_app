@@ -1,0 +1,6 @@
+{
+  "appTitle": "d_c_app",
+  "@appTitle": {
+    "description": "The title of the application"
+  }
+}
