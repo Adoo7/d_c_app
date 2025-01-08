@@ -1,4 +1,5 @@
 import 'package:d_c_app/firebase_options.dart';
+import 'package:d_c_app/injection_container.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -11,12 +12,13 @@ void main() async {
   // Flutter Widgets.
   final settingsController = SettingsController(SettingsService());
 
+  await initializeDependencies();
+
   // Load the user's preferred theme while the splash screen is displayed.
   // This prevents a sudden theme change when the app is first displayed.
   await settingsController.loadSettings();
 
-
-  // Initialize Firebase 
+  // Initialize Firebase
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 

@@ -1,4 +1,4 @@
-import 'package:d_c_app/src/auth/domain/entity/UserEntity.dart';
+import 'package:d_c_app/src/auth/domain/entity/user_entity.dart';
 import 'package:dio/dio.dart';
 
 class UserApi {

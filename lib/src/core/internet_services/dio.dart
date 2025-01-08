@@ -6,11 +6,18 @@ class DioClient {
 
   static final instance = DioClient._();
 
-  final Dio _dio = Dio(BaseOptions(
-      baseUrl: 'localhost:3000/',
+  final Dio _dio = Dio(
+    BaseOptions(
+      baseUrl: 'https://jsonplaceholder.typicode.com',
       connectTimeout: const Duration(seconds: 60),
       receiveTimeout: const Duration(seconds: 60),
-      responseType: ResponseType.json));
+      responseType: ResponseType.json,
+      contentType: 'application/json', // Added contentType here
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    ),
+  );
 
   ///Get Method
   Future<Map<String, dynamic>> get(String path,

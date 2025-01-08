@@ -1,4 +1,4 @@
-import 'package:d_c_app/src/sample_feature/sample_item_list_view.dart';
+import 'package:d_c_app/src/project_feature/presentation/pages/sample_item_list_view.dart';
 import 'package:d_c_app/src/settings/settings_controller.dart';
 import 'package:d_c_app/src/settings/settings_view.dart';
 import 'package:flutter/material.dart';
@@ -28,7 +28,8 @@ class _TestPageState extends State<TestPage> {
 
     // Initialize pages with parameter passed from HomeScreen widget
     _pages.add({'Sample': SampleItemListView()});
-    _pages.add({'Settings': SettingsView(controller: widget.settingsController)});
+    _pages
+        .add({'Settings': SettingsView(controller: widget.settingsController)});
   }
 
   // Method to change the page when the bottom nav item is tapped
@@ -55,7 +56,9 @@ class _TestPageState extends State<TestPage> {
       body: PageView(
         controller: _pageController,
         onPageChanged: _onPageChanged,
-        children: _pages.map((page) => page.values.first).toList(), // Update the bottom nav when page changes
+        children: _pages
+            .map((page) => page.values.first)
+            .toList(), // Update the bottom nav when page changes
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,

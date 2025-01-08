@@ -3,8 +3,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'UserEntity.freezed.dart';
-part 'UserEntity.g.dart';
+part 'user_entity.freezed.dart';
+part 'user_entity.g.dart';
 
 @freezed
 class UserEntity with _$UserEntity {

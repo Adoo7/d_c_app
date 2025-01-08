@@ -1,4 +1,4 @@
-import 'package:d_c_app/src/components/halo.dart';
+import 'package:d_c_app/src/shared/components/halo.dart';
 import 'package:flutter/material.dart';
 
 class DCHeader extends StatelessWidget {
