@@ -1,17 +1,13 @@
 import 'package:d_c_app/src/shared/components/d_c_header.dart';
-import 'package:d_c_app/src/project_feature/presentation/widgets/test_page.dart';
-import 'package:d_c_app/src/settings/settings_controller.dart';
+import 'package:d_c_app/src/features/project_list/presentation/widgets/landing_page.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 
 /// Displays a list of SampleItems.
 class DCLoginView extends StatefulWidget {
-  static const routeName = '/';
+  const DCLoginView({super.key});
 
-  final SettingsController settingsController;
-
-  const DCLoginView({super.key, required this.settingsController});
   @override
   State<DCLoginView> createState() => _DCLoginViewState();
 }
@@ -31,7 +27,7 @@ class _DCLoginViewState extends State<DCLoginView> {
             headerBuilder: (context, constraints, shrinkOffset) => DCHeader(),
           );
         }
-        return TestPage(settingsController: widget.settingsController);
+        return LandingPage();
       },
     );
   }

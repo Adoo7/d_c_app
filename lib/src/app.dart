@@ -1,21 +1,17 @@
-import 'package:d_c_app/src/auth/ui/pages/login_page.dart';
+import 'package:d_c_app/injection_container.dart';
+import 'package:d_c_app/src/core/route/go_router.dart';
 import 'package:d_c_app/src/core/shared/theme/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'project_feature/presentation/pages/sample_item_list_view.dart';
 import 'settings/settings_controller.dart';
-import 'settings/settings_view.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
   const MyApp({
     super.key,
-    required this.settingsController,
   });
-
-  final SettingsController settingsController;
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +20,14 @@ class MyApp extends StatelessWidget {
     // The ListenableBuilder Widget listens to the SettingsController for changes.
     // Whenever the user updates their settings, the MaterialApp is rebuilt.
     return ListenableBuilder(
-      listenable: settingsController,
+      listenable: sl<SettingsController>(),
       builder: (BuildContext context, Widget? child) {
-        return MaterialApp(
+        return MaterialApp.router(
+          routerDelegate: DCAppRouter().router.routerDelegate,
+          routeInformationParser: DCAppRouter().router.routeInformationParser,
+          routeInformationProvider:
+              DCAppRouter().router.routeInformationProvider,
+
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the
@@ -59,23 +60,7 @@ class MyApp extends StatelessWidget {
           // SettingsController to display the correct theme.
           theme: dcTheme,
           darkTheme: dcDarkTheme,
-          themeMode: settingsController.themeMode,
-          // Define a function to handle named routes in order to support
-          // Flutter web url navigation and deep linking.
-          onGenerateRoute: (RouteSettings routeSettings) {
-            return MaterialPageRoute<void>(
-              settings: routeSettings,
-              builder: (BuildContext context) {
-                switch (routeSettings.name) {
-                  case SettingsView.routeName:
-                    return SettingsView(controller: settingsController);
-                  case SampleItemListView.routeName:
-                  default:
-                    return DCLoginView(settingsController: settingsController);
-                }
-              },
-            );
-          },
+          themeMode: sl<SettingsController>().themeMode,
         );
       },
     );

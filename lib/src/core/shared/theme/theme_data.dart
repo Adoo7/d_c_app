@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 // Light Theme
 ThemeData dcTheme = ThemeData(
   primaryColor: primaryColor,
-  splashColor: Colors.white,
+  splashColor: const Color.fromARGB(255, 0, 58, 116),
   scaffoldBackgroundColor: Colors.white,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -14,14 +14,18 @@ ThemeData dcTheme = ThemeData(
   textTheme: TextTheme(
     // Titles
     titleLarge: titleLargeTextStyle,
+    titleMedium: titleMediumTextStyle,
+    titleSmall: titleSmallTextStyle,
 
     // Labels
-    labelSmall: labelSmallTextStyle,
-    labelMedium: labelMediumTextStyle,
     labelLarge: labelLargeTextStyle,
+    labelMedium: labelMediumTextStyle,
+    labelSmall: labelSmallTextStyle,
 
     // Body Text
+    bodyLarge: bodyLargeTextStyle,
     bodyMedium: bodyMediumTextStyle,
+    bodySmall: bodySmallTextStyle,
   ),
   inputDecorationTheme: InputDecorationTheme(
       border: OutlineInputBorder(borderSide: BorderSide(width: 1))),

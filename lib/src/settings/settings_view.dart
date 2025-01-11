@@ -10,8 +10,6 @@ import 'settings_controller.dart';
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.controller});
 
-  static const routeName = '/settings';
-
   final SettingsController controller;
 
   @override
@@ -28,26 +26,26 @@ class SettingsView extends StatelessWidget {
         // SettingsController is updated, which rebuilds the MaterialApp.
         child: Column(
           children: [
-            DropdownButton<ThemeMode>(
-              // Read the selected themeMode from the controller
-              value: controller.themeMode,
-              // Call the updateThemeMode method any time the user selects a theme.
-              onChanged: controller.updateThemeMode,
-              items: const [
-                DropdownMenuItem(
-                  value: ThemeMode.system,
-                  child: Text('System Theme'),
-                ),
-                DropdownMenuItem(
-                  value: ThemeMode.light,
-                  child: Text('Light Theme'),
-                ),
-                DropdownMenuItem(
-                  value: ThemeMode.dark,
-                  child: Text('Dark Theme'),
-                )
-              ],
-            ),
+            // DropdownButton<ThemeMode>(
+            //   // Read the selected themeMode from the controller
+            //   value: controller.themeMode,
+            //   // Call the updateThemeMode method any time the user selects a theme.
+            //   onChanged: controller.updateThemeMode,
+            //   items: const [
+            //     DropdownMenuItem(
+            //       value: ThemeMode.system,
+            //       child: Text('System Theme'),
+            //     ),
+            //     DropdownMenuItem(
+            //       value: ThemeMode.light,
+            //       child: Text('Light Theme'),
+            //     ),
+            //     DropdownMenuItem(
+            //       value: ThemeMode.dark,
+            //       child: Text('Dark Theme'),
+            //     )
+            //   ],
+            // ),
             IconButton(
               icon: const Icon(Icons.person),
               onPressed: () {

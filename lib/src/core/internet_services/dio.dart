@@ -1,3 +1,4 @@
+import 'package:d_c_app/src/core/shared/constants.dart';
 import 'package:dio/dio.dart';
 
 /// Create a singleton class to contain all Dio methods and helper functions
@@ -8,7 +9,7 @@ class DioClient {
 
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: 'https://jsonplaceholder.typicode.com',
+      baseUrl: AppConstants.apiBaseUrl,
       connectTimeout: const Duration(seconds: 60),
       receiveTimeout: const Duration(seconds: 60),
       responseType: ResponseType.json,

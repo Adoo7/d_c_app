@@ -1,8 +1,10 @@
-import 'package:d_c_app/src/project_feature/data/data_sources/remote/project_api_service.dart';
-import 'package:d_c_app/src/project_feature/data/repo/project_repository_impl.dart';
-import 'package:d_c_app/src/project_feature/domain/repo/project_repository.dart';
-import 'package:d_c_app/src/project_feature/domain/use_case/get_projects.dart';
-import 'package:d_c_app/src/project_feature/presentation/bloc/project/project_bloc.dart';
+import 'package:d_c_app/src/features/project_list/data/data_sources/remote/project_api_service.dart';
+import 'package:d_c_app/src/features/project_list/data/repo/project_repository_impl.dart';
+import 'package:d_c_app/src/features/project_list/domain/repo/project_repository.dart';
+import 'package:d_c_app/src/features/project_list/domain/use_case/get_projects.dart';
+import 'package:d_c_app/src/features/project_list/presentation/bloc/project_list/project_list_bloc.dart';
+import 'package:d_c_app/src/settings/settings_controller.dart';
+import 'package:d_c_app/src/settings/settings_service.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -18,6 +20,12 @@ Future<void> initializeDependencies() async {
   // Core Services
   sl.registerSingleton<Dio>(dio);
 
+  // Settings Service
+  sl.registerSingleton<SettingsService>(SettingsService());
+
+  // Settings Controller
+  sl.registerSingleton<SettingsController>(SettingsController(sl()));
+
   // Project Feature: network
   sl.registerSingleton<ProjectApiService>(ProjectApiService(sl()));
 
@@ -28,5 +36,5 @@ Future<void> initializeDependencies() async {
   sl.registerSingleton<GetProjectsUseCase>(GetProjectsUseCase(sl()));
 
   // Project Feature: blocs
-  sl.registerFactory<ProjectBloc>(() => ProjectBloc(sl()));
+  sl.registerFactory<ProjectListBloc>(() => ProjectListBloc(sl()));
 }
