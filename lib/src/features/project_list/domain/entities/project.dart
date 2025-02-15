@@ -1,16 +1,14 @@
-import 'package:equatable/equatable.dart';
+import 'package:d_c_app/src/core/shared/enums.dart';
 
-class ProjectEntity extends Equatable {
+class ProjectEntity {
   final String id;
   final String name;
   final String description;
+  final ProjectViewType type;
 
-  const ProjectEntity({
-    required this.id,
-    required this.name,
-    required this.description,
-  });
-
-  @override
-  List<Object> get props => [id, name, description];
+  const ProjectEntity(
+      {required this.id,
+      required this.name,
+      required this.description,
+      required this.type});
 }

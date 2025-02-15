@@ -7,7 +7,7 @@ class DioClient {
 
   static final instance = DioClient._();
 
-  final Dio _dio = Dio(
+  final Dio dio = Dio(
     BaseOptions(
       baseUrl: AppConstants.apiBaseUrl,
       connectTimeout: const Duration(seconds: 60),
@@ -16,6 +16,7 @@ class DioClient {
       contentType: 'application/json', // Added contentType here
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': "Bearer ${AppConstants.apiKey}",
       },
     ),
   );
@@ -27,7 +28,7 @@ class DioClient {
       CancelToken? cancelToken,
       ProgressCallback? onReceiveProgress}) async {
     try {
-      final Response response = await _dio.get(
+      final Response response = await dio.get(
         path,
         queryParameters: queryParameters,
         options: options,
@@ -52,7 +53,7 @@ class DioClient {
       ProgressCallback? onSendProgress,
       ProgressCallback? onReceiveProgress}) async {
     try {
-      final Response response = await _dio.post(
+      final Response response = await dio.post(
         path,
         data: data,
         queryParameters: queryParameters,
@@ -79,7 +80,7 @@ class DioClient {
       ProgressCallback? onSendProgress,
       ProgressCallback? onReceiveProgress}) async {
     try {
-      final Response response = await _dio.put(
+      final Response response = await dio.put(
         path,
         data: data,
         queryParameters: queryParameters,
@@ -106,7 +107,7 @@ class DioClient {
       ProgressCallback? onSendProgress,
       ProgressCallback? onReceiveProgress}) async {
     try {
-      final Response response = await _dio.delete(
+      final Response response = await dio.delete(
         path,
         data: data,
         queryParameters: queryParameters,

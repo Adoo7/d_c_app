@@ -2,7 +2,7 @@ import 'package:d_c_app/injection_container.dart';
 import 'package:d_c_app/src/core/shared/enums.dart';
 import 'package:d_c_app/src/features/project_list/domain/entities/project.dart';
 import 'package:d_c_app/src/features/project_list/presentation/bloc/project_list/project_list_bloc.dart';
-import 'package:d_c_app/src/features/project_list/presentation/pages/initial_loading_view.dart';
+import 'package:d_c_app/src/shared/components/initial_loading_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -42,7 +42,11 @@ class _ProjectListViewState extends State<ProjectListView> {
               onRefresh: () async => bloc.add(
                     ProjectListEvent.fetchProjects(),
                   ),
-              child: ProjectList(type: widget.type, projects: state.projects)),
+              child: ProjectList(
+                  type: widget.type,
+                  projects: state.projects
+                      .where((p) => p.type == widget.type)
+                      .toList())),
           failed: (state) => RefreshIndicator(
             onRefresh: () async => bloc.add(ProjectListEvent.fetchProjects()),
             child: ListView(
@@ -71,9 +75,9 @@ class ProjectList extends StatelessWidget {
     switch (type) {
       case ProjectViewType.review:
         _title = 'Review';
-      case ProjectViewType.quality:
+      case ProjectViewType.quality_assurance:
         _title = 'Quality Control';
-      case ProjectViewType.collect:
+      case ProjectViewType.data_collection:
         _title = 'Data Collection';
     }
 
@@ -108,7 +112,10 @@ class ProjectList extends StatelessWidget {
               shrinkWrap: true,
               itemBuilder: (ctx, a) {
                 return GestureDetector(
-                  onTap: () => context.go('/project/${projects![a].id}'),
+                  onTap: () {
+                    context.push('/dash/project/${projects![a].id}',
+                        extra: projects![a]);
+                  },
                   child: Container(
                     alignment: Alignment.center,
                     height: 80,

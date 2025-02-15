@@ -1,3 +1,4 @@
+import 'package:d_c_app/src/core/shared/enums.dart';
 import 'package:d_c_app/src/features/project_list/domain/entities/project.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -16,10 +17,10 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
             Future.delayed(const Duration(seconds: 2));
             // final project = await _getProjectByIdUseCase(e.projectId);
             final project = ProjectEntity(
-              id: 'abc123',
-              name: 'Project Name',
-              description: 'Project Description',
-            );
+                id: 'abc123',
+                name: 'Project Name',
+                description: 'Project Description',
+                type: ProjectViewType.review);
             emit(ProjectState.loaded(project));
           } catch (e) {
             emit(ProjectState.failed("Error: ${e.toString()}"));

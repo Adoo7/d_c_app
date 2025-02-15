@@ -23,11 +23,11 @@ class MyApp extends StatelessWidget {
       listenable: sl<SettingsController>(),
       builder: (BuildContext context, Widget? child) {
         return MaterialApp.router(
-          routerDelegate: DCAppRouter().router.routerDelegate,
-          routeInformationParser: DCAppRouter().router.routeInformationParser,
-          routeInformationProvider:
-              DCAppRouter().router.routeInformationProvider,
-
+          // routerDelegate: DCAppRouter().router.routerDelegate,
+          // routeInformationParser: DCAppRouter().router.routeInformationParser,
+          // routeInformationProvider:
+          //     DCAppRouter().router.routeInformationProvider,
+          routerConfig: DCAppRouter().router,
           // Providing a restorationScopeId allows the Navigator built by the
           // MaterialApp to restore the navigation stack when a user leaves and
           // returns to the app after it has been killed while running in the

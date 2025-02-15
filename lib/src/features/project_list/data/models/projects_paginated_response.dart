@@ -1,12 +1,8 @@
-// To parse this JSON data, do
-//
-//     final projectsPaginatedResponse = projectsPaginatedResponseFromJson(jsonString);
-
 import 'package:d_c_app/src/features/project_list/data/models/project.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'projects_paginated_response.freezed.dart';
 part 'projects_paginated_response.g.dart';
+part 'projects_paginated_response.freezed.dart';
 
 @freezed
 class ProjectsPaginatedResponse with _$ProjectsPaginatedResponse {

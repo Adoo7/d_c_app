@@ -28,7 +28,7 @@ class _LandingPageState extends State<LandingPage> {
     // Initialize pages with parameter passed from HomeScreen widget
     _pages.add({
       'Name': 'Collection',
-      'Page': ProjectListView(type: ProjectViewType.collect),
+      'Page': ProjectListView(type: ProjectViewType.data_collection),
       'Icon': Icons.work
     });
     _pages.add({
@@ -38,7 +38,7 @@ class _LandingPageState extends State<LandingPage> {
     });
     _pages.add({
       'Name': 'Quality',
-      'Page': ProjectListView(type: ProjectViewType.quality),
+      'Page': ProjectListView(type: ProjectViewType.quality_assurance),
       'Icon': Icons.filter_alt
     });
     _pages.add({

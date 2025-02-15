@@ -13,9 +13,7 @@ class _ProjectApiService implements ProjectApiService {
     this._dio, {
     this.baseUrl,
     this.errorLogger,
-  }) {
-    baseUrl ??= 'http://192.168.100.17:8080';
-  }
+  });
 
   final Dio _dio;
 

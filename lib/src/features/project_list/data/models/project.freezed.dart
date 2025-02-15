@@ -26,6 +26,8 @@ mixin _$ProjectModel {
   String get name => throw _privateConstructorUsedError;
   @JsonKey(name: "description")
   String get description => throw _privateConstructorUsedError;
+  @JsonKey(name: "project_type")
+  ProjectViewType get type => throw _privateConstructorUsedError;
   @JsonKey(name: "maker_id")
   String get makerId => throw _privateConstructorUsedError;
   @JsonKey(name: "creation_date")
@@ -53,6 +55,7 @@ abstract class $ProjectModelCopyWith<$Res> {
       {@JsonKey(name: "id") String id,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "description") String description,
+      @JsonKey(name: "project_type") ProjectViewType type,
       @JsonKey(name: "maker_id") String makerId,
       @JsonKey(name: "creation_date") DateTime creationDate,
       @JsonKey(name: "last_update") DateTime lastUpdate});
@@ -76,6 +79,7 @@ class _$ProjectModelCopyWithImpl<$Res, $Val extends ProjectModel>
     Object? id = null,
     Object? name = null,
     Object? description = null,
+    Object? type = null,
     Object? makerId = null,
     Object? creationDate = null,
     Object? lastUpdate = null,
@@ -93,6 +97,10 @@ class _$ProjectModelCopyWithImpl<$Res, $Val extends ProjectModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProjectViewType,
       makerId: null == makerId
           ? _value.makerId
           : makerId // ignore: cast_nullable_to_non_nullable
@@ -121,6 +129,7 @@ abstract class _$$ProjectModelImplCopyWith<$Res>
       {@JsonKey(name: "id") String id,
       @JsonKey(name: "name") String name,
       @JsonKey(name: "description") String description,
+      @JsonKey(name: "project_type") ProjectViewType type,
       @JsonKey(name: "maker_id") String makerId,
       @JsonKey(name: "creation_date") DateTime creationDate,
       @JsonKey(name: "last_update") DateTime lastUpdate});
@@ -142,6 +151,7 @@ class __$$ProjectModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? description = null,
+    Object? type = null,
     Object? makerId = null,
     Object? creationDate = null,
     Object? lastUpdate = null,
@@ -159,6 +169,10 @@ class __$$ProjectModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as ProjectViewType,
       makerId: null == makerId
           ? _value.makerId
           : makerId // ignore: cast_nullable_to_non_nullable
@@ -182,6 +196,7 @@ class _$ProjectModelImpl implements _ProjectModel {
       {@JsonKey(name: "id") required this.id,
       @JsonKey(name: "name") required this.name,
       @JsonKey(name: "description") required this.description,
+      @JsonKey(name: "project_type") required this.type,
       @JsonKey(name: "maker_id") required this.makerId,
       @JsonKey(name: "creation_date") required this.creationDate,
       @JsonKey(name: "last_update") required this.lastUpdate});
@@ -199,6 +214,9 @@ class _$ProjectModelImpl implements _ProjectModel {
   @JsonKey(name: "description")
   final String description;
   @override
+  @JsonKey(name: "project_type")
+  final ProjectViewType type;
+  @override
   @JsonKey(name: "maker_id")
   final String makerId;
   @override
@@ -207,6 +225,33 @@ class _$ProjectModelImpl implements _ProjectModel {
   @override
   @JsonKey(name: "last_update")
   final DateTime lastUpdate;
+
+  @override
+  String toString() {
+    return 'ProjectModel(id: $id, name: $name, description: $description, type: $type, makerId: $makerId, creationDate: $creationDate, lastUpdate: $lastUpdate)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProjectModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.makerId, makerId) || other.makerId == makerId) &&
+            (identical(other.creationDate, creationDate) ||
+                other.creationDate == creationDate) &&
+            (identical(other.lastUpdate, lastUpdate) ||
+                other.lastUpdate == lastUpdate));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, description, type,
+      makerId, creationDate, lastUpdate);
 
   /// Create a copy of ProjectModel
   /// with the given fields replaced by the non-null parameter values.
@@ -222,9 +267,6 @@ class _$ProjectModelImpl implements _ProjectModel {
       this,
     );
   }
-
-  @override
-  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 abstract class _ProjectModel implements ProjectModel {
@@ -232,6 +274,7 @@ abstract class _ProjectModel implements ProjectModel {
           {@JsonKey(name: "id") required final String id,
           @JsonKey(name: "name") required final String name,
           @JsonKey(name: "description") required final String description,
+          @JsonKey(name: "project_type") required final ProjectViewType type,
           @JsonKey(name: "maker_id") required final String makerId,
           @JsonKey(name: "creation_date") required final DateTime creationDate,
           @JsonKey(name: "last_update") required final DateTime lastUpdate}) =
@@ -249,6 +292,9 @@ abstract class _ProjectModel implements ProjectModel {
   @override
   @JsonKey(name: "description")
   String get description;
+  @override
+  @JsonKey(name: "project_type")
+  ProjectViewType get type;
   @override
   @JsonKey(name: "maker_id")
   String get makerId;
