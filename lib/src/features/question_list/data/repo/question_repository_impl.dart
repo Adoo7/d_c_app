@@ -96,7 +96,7 @@ class QuestionRepositoryImpl implements QuestionRepository {
       final httpResponse = await _questionApiService
           .postMultipleQuestionResponse(questionResponses.fromList());
 
-      if (httpResponse.response.statusCode == 200) {
+      if (httpResponse.response.statusCode == 201) {
         return DataSuccess(httpResponse.data.toEntity());
       } else {
         return DataFailed(

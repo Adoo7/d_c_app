@@ -1,12 +1,11 @@
-import 'package:d_c_app/src/core/shared/constants.dart';
-import 'package:d_c_app/src/features/survey_list/data/models/surveys_paginated_response.dart';
 import 'package:d_c_app/src/features/survey_list/data/models/survey.dart';
+import 'package:d_c_app/src/features/survey_list/data/models/surveys_paginated_response.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 part "survey_api_service.g.dart";
 
-@RestApi(baseUrl: AppConstants.apiBaseUrl)
+@RestApi()
 abstract class SurveyApiService {
   factory SurveyApiService(Dio dio) = _SurveyApiService;
 
