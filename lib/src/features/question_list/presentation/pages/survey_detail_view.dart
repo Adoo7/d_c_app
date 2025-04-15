@@ -37,12 +37,13 @@ class SurveyDetailView extends StatelessWidget {
               onPressed: () {
                 bloc.add(QuestionEvent.loadAnswersFromBloc(surveyId));
               },
-              child: const Icon(Icons.save)),
+              child: const Icon(Icons.restore)),
           FloatingActionButton.small(
             onPressed: () {
+              bloc.add(QuestionEvent.validateRequiredQuestions());
               bloc.add(QuestionEvent.submitAnswers());
             },
-            child: const Icon(Icons.clean_hands),
+            child: const Icon(Icons.send),
           ),
         ],
       ),
@@ -52,6 +53,7 @@ class SurveyDetailView extends StatelessWidget {
               answerSaved: () => true,
               answerSavedError: () => true,
               snackBarShowing: (_) => true,
+              validationErrors: (_) => true,
               orElse: () => false),
           listener: (_context, state) => state.maybeMap(
                 answerSavedError: (value) => ScaffoldMessenger.of(context)

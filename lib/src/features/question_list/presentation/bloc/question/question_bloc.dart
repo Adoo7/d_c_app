@@ -85,6 +85,25 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           // save answer to local storage
         },
         submitAnswers: (e) async {
+          // First validate required questions
+          List<String> missingRequiredQuestionIds = [];
+
+          for (var question in questions) {
+            if (question.required &&
+                (!answers.containsKey(question.id) ||
+                    answers[question.id] == null ||
+                    answers[question.id]!.isEmpty)) {
+              missingRequiredQuestionIds.add(question.id);
+            }
+          }
+
+          if (missingRequiredQuestionIds.isNotEmpty) {
+            emit(QuestionState.validationErrors(missingRequiredQuestionIds));
+            emit(QuestionState.snackBarShowing(
+                'Please answer all required questions'));
+            return;
+          }
+
           emit(const QuestionState.answerSubmittedInProgress());
           final dataState = await _createResponseUseCase(
               params: QuestionResponseParams(
@@ -106,6 +125,24 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
 
           if (dataState is DataSuccess) {
             emit(QuestionState.answerSubmittedSuccess());
+          }
+        },
+        validateRequiredQuestions: (e) async {
+          List<String> missingRequiredQuestionIds = [];
+
+          for (var question in questions) {
+            if (question.required &&
+                (!answers.containsKey(question.id) ||
+                    answers[question.id] == null ||
+                    answers[question.id]!.isEmpty)) {
+              missingRequiredQuestionIds.add(question.id);
+            }
+          }
+
+          if (missingRequiredQuestionIds.isNotEmpty) {
+            emit(QuestionState.validationErrors(missingRequiredQuestionIds));
+            emit(QuestionState.snackBarShowing(
+                'Please answer all required questions'));
           }
         },
         showSnackBar: (e) async {

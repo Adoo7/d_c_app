@@ -5,6 +5,7 @@ import 'package:d_c_app/src/features/question_list/domain/entities/question.dart
 import 'package:d_c_app/src/features/question_list/presentation/bloc/cubit/answer_cubit.dart';
 import 'package:d_c_app/src/features/question_list/presentation/bloc/question/question_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class QuestionWidget extends StatefulWidget {
   const QuestionWidget(
@@ -24,6 +25,7 @@ class QuestionWidget extends StatefulWidget {
 class _QuestionWidgetState extends State<QuestionWidget> {
   Map<String, dynamic> answers = {};
   final bloc = sl<QuestionBloc>();
+  bool hasValidationError = false;
 
   @override
   void initState() {
@@ -45,6 +47,29 @@ class _QuestionWidgetState extends State<QuestionWidget> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocConsumer<QuestionBloc, QuestionState>(
+      bloc: bloc,
+      listener: (context, state) {
+        state.maybeWhen(
+          validationErrors: (missingQuestionIds) {
+            setState(() {
+              hasValidationError =
+                  missingQuestionIds.contains(widget.question.id) &&
+                      widget.question.required &&
+                      (answers[widget.question.id] == null ||
+                          answers[widget.question.id].toString().isEmpty);
+            });
+          },
+          orElse: () {},
+        );
+      },
+      builder: (context, state) {
+        return _buildQuestionWidget();
+      },
+    );
+  }
+
+  Widget _buildQuestionWidget() {
     switch (QuestionTypeExtension.fromString(widget.question.answerType)) {
       case QuestionTypeEnum.bool:
         return _buildBooleanQuestion(context);
@@ -67,29 +92,62 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     }
   }
 
+  // Helper method to get the border color based on validation state
+  Color _getBorderColor() {
+    if (hasValidationError) {
+      return Theme.of(context).colorScheme.error;
+    }
+    return Colors.transparent;
+  }
+
+  // Helper method to get the container decoration
+  BoxDecoration _getContainerDecoration() {
+    return BoxDecoration(
+      color: Theme.of(context).cardColor,
+      borderRadius: BorderRadius.circular(8.0),
+      border: Border.all(
+        color: _getBorderColor(),
+        width: hasValidationError ? 2.0 : 0.0,
+      ),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.05),
+          blurRadius: 4.0,
+          offset: const Offset(0, 2),
+        ),
+      ],
+    );
+  }
+
   Widget _buildBooleanQuestion(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           Row(
@@ -145,25 +203,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           ...?widget.question.answerListEntity?.answers.map((answer) {
@@ -204,25 +268,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           TextFormField(
@@ -255,25 +325,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           ...?widget.question.answerListEntity?.answers.map((answer) {
@@ -324,25 +400,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           DropdownButtonFormField<String>(
@@ -350,6 +432,11 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             decoration: InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                borderSide: BorderSide(
+                  color: hasValidationError
+                      ? Theme.of(context).colorScheme.error
+                      : Theme.of(context).dividerColor,
+                ),
               ),
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
@@ -363,6 +450,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
 
               setState(() {
                 answers[widget.question.id] = value;
+                hasValidationError = false;
               });
 
               // Find the answer object that matches the selected value
@@ -403,25 +491,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           TextField(
@@ -454,25 +548,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           TextField(
@@ -505,25 +605,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           ElevatedButton(
@@ -547,25 +653,31 @@ class _QuestionWidgetState extends State<QuestionWidget> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      decoration: BoxDecoration(
-        color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(8.0),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 4.0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
+      decoration: _getContainerDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            widget.question.question,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w500,
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  widget.question.question,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                      ),
                 ),
+              ),
+              if (widget.question.required)
+                Text(
+                  '*',
+                  style: TextStyle(
+                    color: hasValidationError
+                        ? Theme.of(context).colorScheme.error
+                        : Theme.of(context).colorScheme.error,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+            ],
           ),
           const SizedBox(height: 16),
           ElevatedButton(

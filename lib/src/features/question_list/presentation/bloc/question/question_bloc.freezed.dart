@@ -27,6 +27,7 @@ mixin _$QuestionEvent {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$QuestionEvent {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$QuestionEvent {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -67,6 +70,8 @@ mixin _$QuestionEvent {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,6 +85,8 @@ mixin _$QuestionEvent {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -93,6 +100,8 @@ mixin _$QuestionEvent {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -197,6 +206,7 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return fetchQuestionById(id);
   }
@@ -213,6 +223,7 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return fetchQuestionById?.call(id);
   }
@@ -229,6 +240,7 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (fetchQuestionById != null) {
@@ -249,6 +261,8 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return fetchQuestionById(this);
   }
@@ -265,6 +279,8 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return fetchQuestionById?.call(this);
   }
@@ -281,6 +297,8 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (fetchQuestionById != null) {
@@ -352,6 +370,7 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return fetchAllQuestions();
   }
@@ -368,6 +387,7 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return fetchAllQuestions?.call();
   }
@@ -384,6 +404,7 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (fetchAllQuestions != null) {
@@ -404,6 +425,8 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return fetchAllQuestions(this);
   }
@@ -420,6 +443,8 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return fetchAllQuestions?.call(this);
   }
@@ -436,6 +461,8 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (fetchAllQuestions != null) {
@@ -533,6 +560,7 @@ class _$FetchQuestionListByProjectIdImpl
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return fetchQuestionListBySurveyId(surveyId);
   }
@@ -549,6 +577,7 @@ class _$FetchQuestionListByProjectIdImpl
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return fetchQuestionListBySurveyId?.call(surveyId);
   }
@@ -565,6 +594,7 @@ class _$FetchQuestionListByProjectIdImpl
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (fetchQuestionListBySurveyId != null) {
@@ -585,6 +615,8 @@ class _$FetchQuestionListByProjectIdImpl
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return fetchQuestionListBySurveyId(this);
   }
@@ -601,6 +633,8 @@ class _$FetchQuestionListByProjectIdImpl
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return fetchQuestionListBySurveyId?.call(this);
   }
@@ -617,6 +651,8 @@ class _$FetchQuestionListByProjectIdImpl
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (fetchQuestionListBySurveyId != null) {
@@ -690,6 +726,7 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return submitAnswers();
   }
@@ -706,6 +743,7 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return submitAnswers?.call();
   }
@@ -722,6 +760,7 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (submitAnswers != null) {
@@ -742,6 +781,8 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return submitAnswers(this);
   }
@@ -758,6 +799,8 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return submitAnswers?.call(this);
   }
@@ -774,6 +817,8 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (submitAnswers != null) {
@@ -883,6 +928,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return answerQuestion(answer, surveyId);
   }
@@ -899,6 +945,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return answerQuestion?.call(answer, surveyId);
   }
@@ -915,6 +962,7 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (answerQuestion != null) {
@@ -935,6 +983,8 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return answerQuestion(this);
   }
@@ -951,6 +1001,8 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return answerQuestion?.call(this);
   }
@@ -967,6 +1019,8 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (answerQuestion != null) {
@@ -1070,6 +1124,7 @@ class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return loadAnswersFromBloc(surveyId);
   }
@@ -1086,6 +1141,7 @@ class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return loadAnswersFromBloc?.call(surveyId);
   }
@@ -1102,6 +1158,7 @@ class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (loadAnswersFromBloc != null) {
@@ -1122,6 +1179,8 @@ class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return loadAnswersFromBloc(this);
   }
@@ -1138,6 +1197,8 @@ class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return loadAnswersFromBloc?.call(this);
   }
@@ -1154,6 +1215,8 @@ class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (loadAnswersFromBloc != null) {
@@ -1253,6 +1316,7 @@ class _$ShowSnackBarImpl implements _ShowSnackBar {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return showSnackBar(message);
   }
@@ -1269,6 +1333,7 @@ class _$ShowSnackBarImpl implements _ShowSnackBar {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return showSnackBar?.call(message);
   }
@@ -1285,6 +1350,7 @@ class _$ShowSnackBarImpl implements _ShowSnackBar {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (showSnackBar != null) {
@@ -1305,6 +1371,8 @@ class _$ShowSnackBarImpl implements _ShowSnackBar {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return showSnackBar(this);
   }
@@ -1321,6 +1389,8 @@ class _$ShowSnackBarImpl implements _ShowSnackBar {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return showSnackBar?.call(this);
   }
@@ -1337,6 +1407,8 @@ class _$ShowSnackBarImpl implements _ShowSnackBar {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (showSnackBar != null) {
@@ -1436,6 +1508,7 @@ class _$ClearAnswersImpl implements _ClearAnswers {
     required TResult Function(String surveyId) loadAnswersFromBloc,
     required TResult Function(String message) showSnackBar,
     required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
   }) {
     return clearAnswers(surveyId);
   }
@@ -1452,6 +1525,7 @@ class _$ClearAnswersImpl implements _ClearAnswers {
     TResult? Function(String surveyId)? loadAnswersFromBloc,
     TResult? Function(String message)? showSnackBar,
     TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
   }) {
     return clearAnswers?.call(surveyId);
   }
@@ -1468,6 +1542,7 @@ class _$ClearAnswersImpl implements _ClearAnswers {
     TResult Function(String surveyId)? loadAnswersFromBloc,
     TResult Function(String message)? showSnackBar,
     TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (clearAnswers != null) {
@@ -1488,6 +1563,8 @@ class _$ClearAnswersImpl implements _ClearAnswers {
     required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
     required TResult Function(_ShowSnackBar value) showSnackBar,
     required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
   }) {
     return clearAnswers(this);
   }
@@ -1504,6 +1581,8 @@ class _$ClearAnswersImpl implements _ClearAnswers {
     TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult? Function(_ShowSnackBar value)? showSnackBar,
     TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
   }) {
     return clearAnswers?.call(this);
   }
@@ -1520,6 +1599,8 @@ class _$ClearAnswersImpl implements _ClearAnswers {
     TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
     TResult Function(_ShowSnackBar value)? showSnackBar,
     TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
     required TResult orElse(),
   }) {
     if (clearAnswers != null) {
@@ -1542,6 +1623,165 @@ abstract class _ClearAnswers implements QuestionEvent {
 }
 
 /// @nodoc
+abstract class _$$ValidateRequiredQuestionsImplCopyWith<$Res> {
+  factory _$$ValidateRequiredQuestionsImplCopyWith(
+          _$ValidateRequiredQuestionsImpl value,
+          $Res Function(_$ValidateRequiredQuestionsImpl) then) =
+      __$$ValidateRequiredQuestionsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ValidateRequiredQuestionsImplCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res, _$ValidateRequiredQuestionsImpl>
+    implements _$$ValidateRequiredQuestionsImplCopyWith<$Res> {
+  __$$ValidateRequiredQuestionsImplCopyWithImpl(
+      _$ValidateRequiredQuestionsImpl _value,
+      $Res Function(_$ValidateRequiredQuestionsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ValidateRequiredQuestionsImpl implements _ValidateRequiredQuestions {
+  const _$ValidateRequiredQuestionsImpl();
+
+  @override
+  String toString() {
+    return 'QuestionEvent.validateRequiredQuestions()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ValidateRequiredQuestionsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) fetchQuestionById,
+    required TResult Function() fetchAllQuestions,
+    required TResult Function(String surveyId) fetchQuestionListBySurveyId,
+    required TResult Function() submitAnswers,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
+    required TResult Function() validateRequiredQuestions,
+  }) {
+    return validateRequiredQuestions();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? fetchQuestionById,
+    TResult? Function()? fetchAllQuestions,
+    TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult? Function()? submitAnswers,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
+    TResult? Function()? validateRequiredQuestions,
+  }) {
+    return validateRequiredQuestions?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? fetchQuestionById,
+    TResult Function()? fetchAllQuestions,
+    TResult Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult Function()? submitAnswers,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
+    TResult Function()? validateRequiredQuestions,
+    required TResult orElse(),
+  }) {
+    if (validateRequiredQuestions != null) {
+      return validateRequiredQuestions();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchQuestionById value) fetchQuestionById,
+    required TResult Function(_FetchAllQuestions value) fetchAllQuestions,
+    required TResult Function(_FetchQuestionListByProjectId value)
+        fetchQuestionListBySurveyId,
+    required TResult Function(_SubmitAnswers value) submitAnswers,
+    required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
+    required TResult Function(_ValidateRequiredQuestions value)
+        validateRequiredQuestions,
+  }) {
+    return validateRequiredQuestions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult? Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult? Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult? Function(_SubmitAnswers value)? submitAnswers,
+    TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
+    TResult? Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
+  }) {
+    return validateRequiredQuestions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult Function(_SubmitAnswers value)? submitAnswers,
+    TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
+    TResult Function(_ValidateRequiredQuestions value)?
+        validateRequiredQuestions,
+    required TResult orElse(),
+  }) {
+    if (validateRequiredQuestions != null) {
+      return validateRequiredQuestions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ValidateRequiredQuestions implements QuestionEvent {
+  const factory _ValidateRequiredQuestions() = _$ValidateRequiredQuestionsImpl;
+}
+
+/// @nodoc
 mixin _$QuestionState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -1557,6 +1797,7 @@ mixin _$QuestionState {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1573,6 +1814,7 @@ mixin _$QuestionState {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1589,6 +1831,7 @@ mixin _$QuestionState {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1608,6 +1851,7 @@ mixin _$QuestionState {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1624,6 +1868,7 @@ mixin _$QuestionState {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1640,6 +1885,7 @@ mixin _$QuestionState {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1719,6 +1965,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return initial();
   }
@@ -1738,6 +1985,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return initial?.call();
   }
@@ -1757,6 +2005,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1782,6 +2031,7 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return initial(this);
   }
@@ -1801,6 +2051,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return initial?.call(this);
   }
@@ -1820,6 +2071,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1886,6 +2138,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return loadInProgress();
   }
@@ -1905,6 +2158,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return loadInProgress?.call();
   }
@@ -1924,6 +2178,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -1949,6 +2204,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return loadInProgress(this);
   }
@@ -1968,6 +2224,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return loadInProgress?.call(this);
   }
@@ -1987,6 +2244,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -2099,6 +2357,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return loadSuccess(questions, loadAnswers);
   }
@@ -2118,6 +2377,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return loadSuccess?.call(questions, loadAnswers);
   }
@@ -2137,6 +2397,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -2162,6 +2423,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return loadSuccess(this);
   }
@@ -2181,6 +2443,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return loadSuccess?.call(this);
   }
@@ -2200,6 +2463,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -2304,6 +2568,7 @@ class _$LoadFailureImpl implements _LoadFailure {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return loadFailure(error);
   }
@@ -2323,6 +2588,7 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return loadFailure?.call(error);
   }
@@ -2342,6 +2608,7 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -2367,6 +2634,7 @@ class _$LoadFailureImpl implements _LoadFailure {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return loadFailure(this);
   }
@@ -2386,6 +2654,7 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return loadFailure?.call(this);
   }
@@ -2405,6 +2674,7 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -2479,6 +2749,7 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return answerChanged();
   }
@@ -2498,6 +2769,7 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return answerChanged?.call();
   }
@@ -2517,6 +2789,7 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -2542,6 +2815,7 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return answerChanged(this);
   }
@@ -2561,6 +2835,7 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return answerChanged?.call(this);
   }
@@ -2580,6 +2855,7 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -2646,6 +2922,7 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return answerSavedError();
   }
@@ -2665,6 +2942,7 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return answerSavedError?.call();
   }
@@ -2684,6 +2962,7 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSavedError != null) {
@@ -2709,6 +2988,7 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return answerSavedError(this);
   }
@@ -2728,6 +3008,7 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return answerSavedError?.call(this);
   }
@@ -2747,6 +3028,7 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSavedError != null) {
@@ -2813,6 +3095,7 @@ class _$AnswerSaveImpl implements _AnswerSave {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return answerSaved();
   }
@@ -2832,6 +3115,7 @@ class _$AnswerSaveImpl implements _AnswerSave {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return answerSaved?.call();
   }
@@ -2851,6 +3135,7 @@ class _$AnswerSaveImpl implements _AnswerSave {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSaved != null) {
@@ -2876,6 +3161,7 @@ class _$AnswerSaveImpl implements _AnswerSave {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return answerSaved(this);
   }
@@ -2895,6 +3181,7 @@ class _$AnswerSaveImpl implements _AnswerSave {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return answerSaved?.call(this);
   }
@@ -2914,6 +3201,7 @@ class _$AnswerSaveImpl implements _AnswerSave {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSaved != null) {
@@ -2983,6 +3271,7 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return answerSubmittedSuccess();
   }
@@ -3002,6 +3291,7 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return answerSubmittedSuccess?.call();
   }
@@ -3021,6 +3311,7 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedSuccess != null) {
@@ -3046,6 +3337,7 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return answerSubmittedSuccess(this);
   }
@@ -3065,6 +3357,7 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return answerSubmittedSuccess?.call(this);
   }
@@ -3084,6 +3377,7 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedSuccess != null) {
@@ -3180,6 +3474,7 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return answerSubmittedFailure(error);
   }
@@ -3199,6 +3494,7 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return answerSubmittedFailure?.call(error);
   }
@@ -3218,6 +3514,7 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedFailure != null) {
@@ -3243,6 +3540,7 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return answerSubmittedFailure(this);
   }
@@ -3262,6 +3560,7 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return answerSubmittedFailure?.call(this);
   }
@@ -3281,6 +3580,7 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedFailure != null) {
@@ -3359,6 +3659,7 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return answerSubmittedInProgress();
   }
@@ -3378,6 +3679,7 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return answerSubmittedInProgress?.call();
   }
@@ -3397,6 +3699,7 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedInProgress != null) {
@@ -3422,6 +3725,7 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return answerSubmittedInProgress(this);
   }
@@ -3441,6 +3745,7 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return answerSubmittedInProgress?.call(this);
   }
@@ -3460,6 +3765,7 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedInProgress != null) {
@@ -3554,6 +3860,7 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
   }) {
     return snackBarShowing(message);
   }
@@ -3573,6 +3880,7 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
   }) {
     return snackBarShowing?.call(message);
   }
@@ -3592,6 +3900,7 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
     required TResult orElse(),
   }) {
     if (snackBarShowing != null) {
@@ -3617,6 +3926,7 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
     required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
   }) {
     return snackBarShowing(this);
   }
@@ -3636,6 +3946,7 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
   }) {
     return snackBarShowing?.call(this);
   }
@@ -3655,6 +3966,7 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
     TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
     required TResult orElse(),
   }) {
     if (snackBarShowing != null) {
@@ -3673,5 +3985,224 @@ abstract class _SnackBarShowing implements QuestionState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SnackBarShowingImplCopyWith<_$SnackBarShowingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ValidationErrorsImplCopyWith<$Res> {
+  factory _$$ValidationErrorsImplCopyWith(_$ValidationErrorsImpl value,
+          $Res Function(_$ValidationErrorsImpl) then) =
+      __$$ValidationErrorsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<String> missingQuestionIds});
+}
+
+/// @nodoc
+class __$$ValidationErrorsImplCopyWithImpl<$Res>
+    extends _$QuestionStateCopyWithImpl<$Res, _$ValidationErrorsImpl>
+    implements _$$ValidationErrorsImplCopyWith<$Res> {
+  __$$ValidationErrorsImplCopyWithImpl(_$ValidationErrorsImpl _value,
+      $Res Function(_$ValidationErrorsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? missingQuestionIds = null,
+  }) {
+    return _then(_$ValidationErrorsImpl(
+      null == missingQuestionIds
+          ? _value._missingQuestionIds
+          : missingQuestionIds // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ValidationErrorsImpl implements _ValidationErrors {
+  const _$ValidationErrorsImpl(final List<String> missingQuestionIds)
+      : _missingQuestionIds = missingQuestionIds;
+
+  final List<String> _missingQuestionIds;
+  @override
+  List<String> get missingQuestionIds {
+    if (_missingQuestionIds is EqualUnmodifiableListView)
+      return _missingQuestionIds;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_missingQuestionIds);
+  }
+
+  @override
+  String toString() {
+    return 'QuestionState.validationErrors(missingQuestionIds: $missingQuestionIds)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ValidationErrorsImpl &&
+            const DeepCollectionEquality()
+                .equals(other._missingQuestionIds, _missingQuestionIds));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_missingQuestionIds));
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ValidationErrorsImplCopyWith<_$ValidationErrorsImpl> get copyWith =>
+      __$$ValidationErrorsImplCopyWithImpl<_$ValidationErrorsImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
+    required TResult Function(String error) loadFailure,
+    required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
+    required TResult Function() answerSubmittedSuccess,
+    required TResult Function(String error) answerSubmittedFailure,
+    required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
+    required TResult Function(List<String> missingQuestionIds) validationErrors,
+  }) {
+    return validationErrors(missingQuestionIds);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult? Function(String error)? loadFailure,
+    TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
+    TResult? Function()? answerSubmittedSuccess,
+    TResult? Function(String error)? answerSubmittedFailure,
+    TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
+    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+  }) {
+    return validationErrors?.call(missingQuestionIds);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult Function(String error)? loadFailure,
+    TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
+    TResult Function()? answerSubmittedSuccess,
+    TResult Function(String error)? answerSubmittedFailure,
+    TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
+    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    required TResult orElse(),
+  }) {
+    if (validationErrors != null) {
+      return validationErrors(missingQuestionIds);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
+    required TResult Function(_AnswerSubmittedSuccess value)
+        answerSubmittedSuccess,
+    required TResult Function(_AnswerSubmittedFailure value)
+        answerSubmittedFailure,
+    required TResult Function(_AnswerSubmittedInProgress value)
+        answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
+    required TResult Function(_ValidationErrors value) validationErrors,
+  }) {
+    return validationErrors(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
+    TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult? Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
+    TResult? Function(_ValidationErrors value)? validationErrors,
+  }) {
+    return validationErrors?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
+    TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
+    TResult Function(_ValidationErrors value)? validationErrors,
+    required TResult orElse(),
+  }) {
+    if (validationErrors != null) {
+      return validationErrors(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ValidationErrors implements QuestionState {
+  const factory _ValidationErrors(final List<String> missingQuestionIds) =
+      _$ValidationErrorsImpl;
+
+  List<String> get missingQuestionIds;
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ValidationErrorsImplCopyWith<_$ValidationErrorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

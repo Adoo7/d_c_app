@@ -14,4 +14,6 @@ class QuestionEvent with _$QuestionEvent {
       _LoadAnswersFromBloc;
   const factory QuestionEvent.showSnackBar(String message) = _ShowSnackBar;
   const factory QuestionEvent.clearAnswers(String surveyId) = _ClearAnswers;
+  const factory QuestionEvent.validateRequiredQuestions() =
+      _ValidateRequiredQuestions;
 }
