@@ -191,34 +191,27 @@ class _QuestionWidgetState extends State<QuestionWidget> {
 
   Widget _buildBooleanButton(BuildContext context, String label, String value) {
     return ElevatedButton(
+      onPressed: () {
+        _updateAnswer(widget.question.id, value);
+      },
       style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(vertical: 12.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8.0),
-        ),
         backgroundColor: answers[widget.question.id] == value
             ? Theme.of(context).primaryColor
-            : Theme.of(context).primaryColorLight,
-      ),
-      onPressed: () {
-        setState(() {
-          answers[widget.question.id] = value;
-        });
-        bloc.add(
-          QuestionEvent.answerQuestion(
-            answer: {widget.question.id: value},
-            surveyId: widget.question.surveyId!,
+            : Theme.of(context).cardColor,
+        foregroundColor: answers[widget.question.id] == value
+            ? Colors.white
+            : Theme.of(context).textTheme.bodyLarge?.color,
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
+          side: BorderSide(
+            color: answers[widget.question.id] == value
+                ? Theme.of(context).primaryColor
+                : Theme.of(context).dividerColor,
           ),
-        );
-      },
-      child: Text(
-        label,
-        style: TextStyle(
-          color: answers[widget.question.id] == value
-              ? Theme.of(context).colorScheme.onPrimary
-              : Theme.of(context).colorScheme.onSurface,
         ),
       ),
+      child: Text(label),
     );
   }
 
@@ -253,35 +246,45 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             ],
           ),
           const SizedBox(height: 16),
-          ...?widget.question.answerListEntity?.answers.map((answer) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: CheckboxListTile(
-                title: Text(answer.answerText),
-                value:
-                    answers[widget.question.id]?.split(',').contains(answer) ??
+          Column(
+            children: widget.question.answerListEntity?.answers
+                    .where((answer) => answer.isVisible)
+                    .map((Answer answer) {
+                  return CheckboxListTile(
+                    title: Text(answer.answerText),
+                    value: answers[widget.question.id]
+                            ?.split(',')
+                            .contains(answer.answerText) ??
                         false,
-                onChanged: (value) {
-                  setState(() {
-                    if (value == true) {
-                      answers[widget.question.id] =
-                          answers[widget.question.id] == null
-                              ? answer
-                              : '${answers[widget.question.id]},$answer';
-                    } else {
-                      answers[widget.question.id] = answers[widget.question.id]
-                          ?.split(',')
-                          .where((a) => a != answer)
-                          .join(',');
-                    }
-                  });
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-            );
-          }),
+                    onChanged: (bool? value) {
+                      if (value == null) return;
+
+                      String currentAnswers = answers[widget.question.id] ?? '';
+                      List<String> answerList = currentAnswers.isEmpty
+                          ? []
+                          : currentAnswers.split(',');
+
+                      if (value) {
+                        // Add the answer if it's not already in the list
+                        if (!answerList.contains(answer.answerText)) {
+                          answerList.add(answer.answerText);
+                        }
+                      } else {
+                        // Remove the answer from the list
+                        answerList.remove(answer.answerText);
+                      }
+
+                      // Update the answer with the new list
+                      _updateAnswer(widget.question.id,
+                          answerList.isEmpty ? null : answerList.join(','));
+                    },
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  );
+                }).toList() ??
+                [],
+          ),
         ],
       ),
     );
@@ -318,12 +321,18 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             ],
           ),
           const SizedBox(height: 16),
-          TextFormField(
-            initialValue: answers[widget.question.id],
+          TextField(
+            controller: TextEditingController(
+                text: answers[widget.question.id]?.toString() ?? ''),
             decoration: InputDecoration(
               hintText: 'Enter your answer',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                borderSide: BorderSide(
+                  color: hasValidationError
+                      ? Theme.of(context).colorScheme.error
+                      : Theme.of(context).dividerColor,
+                ),
               ),
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
@@ -331,12 +340,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               ),
             ),
             onChanged: (value) {
-              bloc.add(
-                QuestionEvent.answerQuestion(
-                  answer: {widget.question.id: value},
-                  surveyId: widget.question.surveyId!,
-                ),
-              );
+              _updateAnswer(widget.question.id, value);
             },
           ),
         ],
@@ -375,30 +379,25 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             ],
           ),
           const SizedBox(height: 16),
-          ...?widget.question.answerListEntity?.answers.map((answer) {
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: RadioListTile(
-                groupValue: answers[widget.question.id],
-                title: Text(answer.answerText),
-                value: answer,
-                onChanged: (value) {
-                  setState(() {
-                    answers[widget.question.id] = answer;
-                  });
-                  bloc.add(
-                    QuestionEvent.answerQuestion(
-                      answer: {widget.question.id: answer.answerText},
-                      surveyId: widget.question.surveyId!,
-                    ),
+          Column(
+            children: widget.question.answerListEntity?.answers
+                    .where((answer) => answer.isVisible)
+                    .map((Answer answer) {
+                  return RadioListTile<String>(
+                    title: Text(answer.answerText),
+                    value: answer.answerText,
+                    groupValue: answers[widget.question.id],
+                    onChanged: (String? value) {
+                      if (value == null) return;
+
+                      _updateAnswer(widget.question.id, value);
+
+                      selectAnswer(widget.question.id, answer);
+                    },
                   );
-                },
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-            );
-          }),
+                }).toList() ??
+                [],
+          ),
         ],
       ),
     );
@@ -471,10 +470,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
             onChanged: (String? value) {
               if (value == null) return;
 
-              setState(() {
-                answers[widget.question.id] = value;
-                hasValidationError = false;
-              });
+              _updateAnswer(widget.question.id, value);
 
               // Find the answer object that matches the selected value
               Answer? selectedAnswerObj = widget
@@ -484,13 +480,6 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               if (selectedAnswerObj != null) {
                 selectAnswer(widget.question.id, selectedAnswerObj);
               }
-
-              bloc.add(
-                QuestionEvent.answerQuestion(
-                  answer: {widget.question.id: value},
-                  surveyId: widget.question.surveyId!,
-                ),
-              );
             },
             items: widget.question.answerListEntity?.answers
                 .where((answer) => answer.isVisible)
@@ -542,11 +531,18 @@ class _QuestionWidgetState extends State<QuestionWidget> {
           ),
           const SizedBox(height: 16),
           TextField(
+            controller: TextEditingController(
+                text: answers[widget.question.id]?.toString() ?? ''),
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
-              hintText: 'Enter your answer',
+              hintText: 'Enter a number',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                borderSide: BorderSide(
+                  color: hasValidationError
+                      ? Theme.of(context).colorScheme.error
+                      : Theme.of(context).dividerColor,
+                ),
               ),
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
@@ -554,12 +550,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               ),
             ),
             onChanged: (value) {
-              bloc.add(
-                QuestionEvent.answerQuestion(
-                  answer: {widget.question.id: value},
-                  surveyId: widget.question.surveyId!,
-                ),
-              );
+              _updateAnswer(widget.question.id, value);
             },
           ),
         ],
@@ -599,11 +590,18 @@ class _QuestionWidgetState extends State<QuestionWidget> {
           ),
           const SizedBox(height: 16),
           TextField(
+            controller: TextEditingController(
+                text: answers[widget.question.id]?.toString() ?? ''),
             maxLines: 5,
             decoration: InputDecoration(
               hintText: 'Enter your answer',
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
+                borderSide: BorderSide(
+                  color: hasValidationError
+                      ? Theme.of(context).colorScheme.error
+                      : Theme.of(context).dividerColor,
+                ),
               ),
               contentPadding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
@@ -611,12 +609,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
               ),
             ),
             onChanged: (value) {
-              bloc.add(
-                QuestionEvent.answerQuestion(
-                  answer: {widget.question.id: value},
-                  surveyId: widget.question.surveyId!,
-                ),
-              );
+              _updateAnswer(widget.question.id, value);
             },
           ),
         ],
@@ -783,5 +776,29 @@ class _QuestionWidgetState extends State<QuestionWidget> {
         }
       }
     }
+  }
+
+  // Helper method to update an answer and remove it if empty
+  void _updateAnswer(String questionId, String? value) {
+    setState(() {
+      if (value == null || value.isEmpty) {
+        // Remove the answer if it's empty
+        answers.remove(questionId);
+      } else {
+        // Update the answer
+        answers[questionId] = value;
+      }
+
+      // Reset validation error when answer is updated
+      hasValidationError = false;
+    });
+
+    // Notify the bloc about the answer change
+    bloc.add(
+      QuestionEvent.answerQuestion(
+        answer: {questionId: value ?? ""},
+        surveyId: widget.question.surveyId!,
+      ),
+    );
   }
 }

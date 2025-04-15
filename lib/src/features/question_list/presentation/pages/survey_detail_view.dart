@@ -53,7 +53,6 @@ class _SurveyDetailViewState extends State<SurveyDetailView> {
               child: const Icon(Icons.restore)),
           FloatingActionButton.small(
             onPressed: () {
-              bloc.add(QuestionEvent.validateRequiredQuestions());
               bloc.add(QuestionEvent.submitAnswers());
             },
             child: const Icon(Icons.send),

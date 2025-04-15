@@ -116,16 +116,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
               firstMissingQuestionId: firstMissingQuestionId,
             ));
 
-            // Create a more descriptive message
-            String message;
-            if (missingRequiredQuestionIds.length == 1) {
-              message = 'Missed a required question';
-            } else {
-              message =
-                  'Missed ${missingRequiredQuestionIds.length} required questions';
-            }
-
-            emit(QuestionState.snackBarShowing(message));
+            // Don't emit a snackbar message here since validateRequiredQuestions already does that
             return;
           }
 
