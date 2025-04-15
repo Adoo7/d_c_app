@@ -13,7 +13,7 @@ class AnswerListReponse with _$AnswerListReponse {
     @JsonKey(name: "id") required String id,
     @JsonKey(name: "question_id") required String questionId,
     @JsonKey(name: "answer_list_name") required String answerListName,
-    @JsonKey(name: "answers") required List<Answer> answers,
+    @JsonKey(name: "answers") required List<AnswerResponse> answers,
   }) = _AnswerListReponse;
 
   factory AnswerListReponse.fromJson(Map<String, dynamic> json) =>
@@ -21,25 +21,28 @@ class AnswerListReponse with _$AnswerListReponse {
 }
 
 @freezed
-class Answer with _$Answer {
-  const factory Answer({
+class AnswerResponse with _$AnswerResponse {
+  const factory AnswerResponse({
     @JsonKey(name: "id") required String id,
     @JsonKey(name: "answer_text") required String answerText,
     @JsonKey(name: "answer_list_id") required String answerListId,
     @JsonKey(name: "related_answer_id")
-    required RelatedAnswerId relatedAnswerId,
+    required NullableString relatedAnswerIds,
+    @JsonKey(name: "parent_answer_ids") required NullableString parentAnswerIds,
+    @JsonKey(name: "child_answer_ids") required NullableString childAnswerIds,
   }) = _Answer;
 
-  factory Answer.fromJson(Map<String, dynamic> json) => _$AnswerFromJson(json);
+  factory AnswerResponse.fromJson(Map<String, dynamic> json) =>
+      _$AnswerResponseFromJson(json);
 }
 
 @freezed
-class RelatedAnswerId with _$RelatedAnswerId {
-  const factory RelatedAnswerId({
+class NullableString with _$NullableString {
+  const factory NullableString({
     @JsonKey(name: "String") required String string,
     @JsonKey(name: "Valid") required bool valid,
-  }) = _RelatedAnswerId;
+  }) = _NullableString;
 
-  factory RelatedAnswerId.fromJson(Map<String, dynamic> json) =>
-      _$RelatedAnswerIdFromJson(json);
+  factory NullableString.fromJson(Map<String, dynamic> json) =>
+      _$NullableStringFromJson(json);
 }

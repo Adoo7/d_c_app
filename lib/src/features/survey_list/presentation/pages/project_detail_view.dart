@@ -22,7 +22,7 @@ class ProjectDetailView extends StatelessWidget {
       appBar: AppBar(
         title: Text('Surveys'),
       ),
-      floatingActionButton: FloatingActionButton.small(onPressed: () {}),
+      // floatingActionButton: FloatingActionButton.small(onPressed: () {}),
       body: BlocBuilder<SurveyBloc, SurveyState>(
         bloc: bloc..add(SurveyEvent.fetchSurveyListByProjectId(projectId)),
         builder: (context, state) {
@@ -43,7 +43,7 @@ class ProjectDetailView extends StatelessWidget {
 }
 
 class SurveyList extends StatelessWidget {
-  SurveyList(
+  const SurveyList(
       {super.key,
       required this.surveys,
       required this.title,
@@ -51,7 +51,7 @@ class SurveyList extends StatelessWidget {
       required this.projectName});
 
   final List<SurveyEntity>? surveys;
-  late String title;
+  final String title;
   final String projectId;
   final String projectName;
 
@@ -67,17 +67,17 @@ class SurveyList extends StatelessWidget {
             child: Column(
               children: [
                 Text(title, style: Theme.of(context).textTheme.titleLarge),
-                RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: 'Want to import a Survey?',
-                      style: Theme.of(context).textTheme.bodyMedium),
-                  TextSpan(
-                      text: ' Click here',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold)),
-                ])),
+                // RichText(
+                //     text: TextSpan(children: [
+                //   TextSpan(
+                //       text: 'Want to import a Survey?',
+                //       style: Theme.of(context).textTheme.bodyMedium),
+                //   TextSpan(
+                //       text: ' Click here',
+                //       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                //           color: Theme.of(context).primaryColor,
+                //           fontWeight: FontWeight.bold)),
+                // ])),
               ],
             ),
           ),

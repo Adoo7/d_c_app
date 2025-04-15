@@ -22,7 +22,11 @@ mixin _$QuestionEvent {
     required TResult Function() fetchAllQuestions,
     required TResult Function(String surveyId) fetchQuestionListBySurveyId,
     required TResult Function() submitAnswers,
-    required TResult Function(Map<String, String> answer) answerQuestion,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,7 +35,11 @@ mixin _$QuestionEvent {
     TResult? Function()? fetchAllQuestions,
     TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult? Function()? submitAnswers,
-    TResult? Function(Map<String, String> answer)? answerQuestion,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +48,11 @@ mixin _$QuestionEvent {
     TResult Function()? fetchAllQuestions,
     TResult Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult Function()? submitAnswers,
-    TResult Function(Map<String, String> answer)? answerQuestion,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +64,9 @@ mixin _$QuestionEvent {
         fetchQuestionListBySurveyId,
     required TResult Function(_SubmitAnswers value) submitAnswers,
     required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +77,9 @@ mixin _$QuestionEvent {
         fetchQuestionListBySurveyId,
     TResult? Function(_SubmitAnswers value)? submitAnswers,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +90,9 @@ mixin _$QuestionEvent {
         fetchQuestionListBySurveyId,
     TResult Function(_SubmitAnswers value)? submitAnswers,
     TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,7 +192,11 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     required TResult Function() fetchAllQuestions,
     required TResult Function(String surveyId) fetchQuestionListBySurveyId,
     required TResult Function() submitAnswers,
-    required TResult Function(Map<String, String> answer) answerQuestion,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
   }) {
     return fetchQuestionById(id);
   }
@@ -183,7 +208,11 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     TResult? Function()? fetchAllQuestions,
     TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult? Function()? submitAnswers,
-    TResult? Function(Map<String, String> answer)? answerQuestion,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
   }) {
     return fetchQuestionById?.call(id);
   }
@@ -195,7 +224,11 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
     TResult Function()? fetchAllQuestions,
     TResult Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult Function()? submitAnswers,
-    TResult Function(Map<String, String> answer)? answerQuestion,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
     required TResult orElse(),
   }) {
     if (fetchQuestionById != null) {
@@ -213,6 +246,9 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
         fetchQuestionListBySurveyId,
     required TResult Function(_SubmitAnswers value) submitAnswers,
     required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
   }) {
     return fetchQuestionById(this);
   }
@@ -226,6 +262,9 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
         fetchQuestionListBySurveyId,
     TResult? Function(_SubmitAnswers value)? submitAnswers,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
   }) {
     return fetchQuestionById?.call(this);
   }
@@ -239,6 +278,9 @@ class _$FetchQuestionByIdImpl implements _FetchQuestionById {
         fetchQuestionListBySurveyId,
     TResult Function(_SubmitAnswers value)? submitAnswers,
     TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
     required TResult orElse(),
   }) {
     if (fetchQuestionById != null) {
@@ -305,7 +347,11 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     required TResult Function() fetchAllQuestions,
     required TResult Function(String surveyId) fetchQuestionListBySurveyId,
     required TResult Function() submitAnswers,
-    required TResult Function(Map<String, String> answer) answerQuestion,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
   }) {
     return fetchAllQuestions();
   }
@@ -317,7 +363,11 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     TResult? Function()? fetchAllQuestions,
     TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult? Function()? submitAnswers,
-    TResult? Function(Map<String, String> answer)? answerQuestion,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
   }) {
     return fetchAllQuestions?.call();
   }
@@ -329,7 +379,11 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
     TResult Function()? fetchAllQuestions,
     TResult Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult Function()? submitAnswers,
-    TResult Function(Map<String, String> answer)? answerQuestion,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
     required TResult orElse(),
   }) {
     if (fetchAllQuestions != null) {
@@ -347,6 +401,9 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
         fetchQuestionListBySurveyId,
     required TResult Function(_SubmitAnswers value) submitAnswers,
     required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
   }) {
     return fetchAllQuestions(this);
   }
@@ -360,6 +417,9 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
         fetchQuestionListBySurveyId,
     TResult? Function(_SubmitAnswers value)? submitAnswers,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
   }) {
     return fetchAllQuestions?.call(this);
   }
@@ -373,6 +433,9 @@ class _$FetchAllQuestionsImpl implements _FetchAllQuestions {
         fetchQuestionListBySurveyId,
     TResult Function(_SubmitAnswers value)? submitAnswers,
     TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
     required TResult orElse(),
   }) {
     if (fetchAllQuestions != null) {
@@ -465,7 +528,11 @@ class _$FetchQuestionListByProjectIdImpl
     required TResult Function() fetchAllQuestions,
     required TResult Function(String surveyId) fetchQuestionListBySurveyId,
     required TResult Function() submitAnswers,
-    required TResult Function(Map<String, String> answer) answerQuestion,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
   }) {
     return fetchQuestionListBySurveyId(surveyId);
   }
@@ -477,7 +544,11 @@ class _$FetchQuestionListByProjectIdImpl
     TResult? Function()? fetchAllQuestions,
     TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult? Function()? submitAnswers,
-    TResult? Function(Map<String, String> answer)? answerQuestion,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
   }) {
     return fetchQuestionListBySurveyId?.call(surveyId);
   }
@@ -489,7 +560,11 @@ class _$FetchQuestionListByProjectIdImpl
     TResult Function()? fetchAllQuestions,
     TResult Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult Function()? submitAnswers,
-    TResult Function(Map<String, String> answer)? answerQuestion,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
     required TResult orElse(),
   }) {
     if (fetchQuestionListBySurveyId != null) {
@@ -507,6 +582,9 @@ class _$FetchQuestionListByProjectIdImpl
         fetchQuestionListBySurveyId,
     required TResult Function(_SubmitAnswers value) submitAnswers,
     required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
   }) {
     return fetchQuestionListBySurveyId(this);
   }
@@ -520,6 +598,9 @@ class _$FetchQuestionListByProjectIdImpl
         fetchQuestionListBySurveyId,
     TResult? Function(_SubmitAnswers value)? submitAnswers,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
   }) {
     return fetchQuestionListBySurveyId?.call(this);
   }
@@ -533,6 +614,9 @@ class _$FetchQuestionListByProjectIdImpl
         fetchQuestionListBySurveyId,
     TResult Function(_SubmitAnswers value)? submitAnswers,
     TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
     required TResult orElse(),
   }) {
     if (fetchQuestionListBySurveyId != null) {
@@ -601,7 +685,11 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     required TResult Function() fetchAllQuestions,
     required TResult Function(String surveyId) fetchQuestionListBySurveyId,
     required TResult Function() submitAnswers,
-    required TResult Function(Map<String, String> answer) answerQuestion,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
   }) {
     return submitAnswers();
   }
@@ -613,7 +701,11 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     TResult? Function()? fetchAllQuestions,
     TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult? Function()? submitAnswers,
-    TResult? Function(Map<String, String> answer)? answerQuestion,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
   }) {
     return submitAnswers?.call();
   }
@@ -625,7 +717,11 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
     TResult Function()? fetchAllQuestions,
     TResult Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult Function()? submitAnswers,
-    TResult Function(Map<String, String> answer)? answerQuestion,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
     required TResult orElse(),
   }) {
     if (submitAnswers != null) {
@@ -643,6 +739,9 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
         fetchQuestionListBySurveyId,
     required TResult Function(_SubmitAnswers value) submitAnswers,
     required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
   }) {
     return submitAnswers(this);
   }
@@ -656,6 +755,9 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
         fetchQuestionListBySurveyId,
     TResult? Function(_SubmitAnswers value)? submitAnswers,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
   }) {
     return submitAnswers?.call(this);
   }
@@ -669,6 +771,9 @@ class _$SubmitAnswersImpl implements _SubmitAnswers {
         fetchQuestionListBySurveyId,
     TResult Function(_SubmitAnswers value)? submitAnswers,
     TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
     required TResult orElse(),
   }) {
     if (submitAnswers != null) {
@@ -688,7 +793,7 @@ abstract class _$$AnswerQuestionImplCopyWith<$Res> {
           $Res Function(_$AnswerQuestionImpl) then) =
       __$$AnswerQuestionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Map<String, String> answer});
+  $Res call({Map<String, String> answer, String surveyId});
 }
 
 /// @nodoc
@@ -705,12 +810,17 @@ class __$$AnswerQuestionImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answer = null,
+    Object? surveyId = null,
   }) {
     return _then(_$AnswerQuestionImpl(
-      null == answer
+      answer: null == answer
           ? _value._answer
           : answer // ignore: cast_nullable_to_non_nullable
               as Map<String, String>,
+      surveyId: null == surveyId
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -718,7 +828,8 @@ class __$$AnswerQuestionImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AnswerQuestionImpl implements _AnswerQuestion {
-  const _$AnswerQuestionImpl(final Map<String, String> answer)
+  const _$AnswerQuestionImpl(
+      {required final Map<String, String> answer, required this.surveyId})
       : _answer = answer;
 
   final Map<String, String> _answer;
@@ -730,8 +841,11 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
   }
 
   @override
+  final String surveyId;
+
+  @override
   String toString() {
-    return 'QuestionEvent.answerQuestion(answer: $answer)';
+    return 'QuestionEvent.answerQuestion(answer: $answer, surveyId: $surveyId)';
   }
 
   @override
@@ -739,12 +853,14 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AnswerQuestionImpl &&
-            const DeepCollectionEquality().equals(other._answer, _answer));
+            const DeepCollectionEquality().equals(other._answer, _answer) &&
+            (identical(other.surveyId, surveyId) ||
+                other.surveyId == surveyId));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_answer));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_answer), surveyId);
 
   /// Create a copy of QuestionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -762,9 +878,13 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     required TResult Function() fetchAllQuestions,
     required TResult Function(String surveyId) fetchQuestionListBySurveyId,
     required TResult Function() submitAnswers,
-    required TResult Function(Map<String, String> answer) answerQuestion,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
   }) {
-    return answerQuestion(answer);
+    return answerQuestion(answer, surveyId);
   }
 
   @override
@@ -774,9 +894,13 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult? Function()? fetchAllQuestions,
     TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult? Function()? submitAnswers,
-    TResult? Function(Map<String, String> answer)? answerQuestion,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
   }) {
-    return answerQuestion?.call(answer);
+    return answerQuestion?.call(answer, surveyId);
   }
 
   @override
@@ -786,11 +910,15 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
     TResult Function()? fetchAllQuestions,
     TResult Function(String surveyId)? fetchQuestionListBySurveyId,
     TResult Function()? submitAnswers,
-    TResult Function(Map<String, String> answer)? answerQuestion,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
     required TResult orElse(),
   }) {
     if (answerQuestion != null) {
-      return answerQuestion(answer);
+      return answerQuestion(answer, surveyId);
     }
     return orElse();
   }
@@ -804,6 +932,9 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
         fetchQuestionListBySurveyId,
     required TResult Function(_SubmitAnswers value) submitAnswers,
     required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
   }) {
     return answerQuestion(this);
   }
@@ -817,6 +948,9 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
         fetchQuestionListBySurveyId,
     TResult? Function(_SubmitAnswers value)? submitAnswers,
     TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
   }) {
     return answerQuestion?.call(this);
   }
@@ -830,6 +964,9 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
         fetchQuestionListBySurveyId,
     TResult Function(_SubmitAnswers value)? submitAnswers,
     TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
     required TResult orElse(),
   }) {
     if (answerQuestion != null) {
@@ -840,10 +977,12 @@ class _$AnswerQuestionImpl implements _AnswerQuestion {
 }
 
 abstract class _AnswerQuestion implements QuestionEvent {
-  const factory _AnswerQuestion(final Map<String, String> answer) =
-      _$AnswerQuestionImpl;
+  const factory _AnswerQuestion(
+      {required final Map<String, String> answer,
+      required final String surveyId}) = _$AnswerQuestionImpl;
 
   Map<String, String> get answer;
+  String get surveyId;
 
   /// Create a copy of QuestionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -853,41 +992,603 @@ abstract class _AnswerQuestion implements QuestionEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadAnswersFromBlocImplCopyWith<$Res> {
+  factory _$$LoadAnswersFromBlocImplCopyWith(_$LoadAnswersFromBlocImpl value,
+          $Res Function(_$LoadAnswersFromBlocImpl) then) =
+      __$$LoadAnswersFromBlocImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String surveyId});
+}
+
+/// @nodoc
+class __$$LoadAnswersFromBlocImplCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res, _$LoadAnswersFromBlocImpl>
+    implements _$$LoadAnswersFromBlocImplCopyWith<$Res> {
+  __$$LoadAnswersFromBlocImplCopyWithImpl(_$LoadAnswersFromBlocImpl _value,
+      $Res Function(_$LoadAnswersFromBlocImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? surveyId = null,
+  }) {
+    return _then(_$LoadAnswersFromBlocImpl(
+      null == surveyId
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadAnswersFromBlocImpl implements _LoadAnswersFromBloc {
+  const _$LoadAnswersFromBlocImpl(this.surveyId);
+
+  @override
+  final String surveyId;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.loadAnswersFromBloc(surveyId: $surveyId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadAnswersFromBlocImpl &&
+            (identical(other.surveyId, surveyId) ||
+                other.surveyId == surveyId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, surveyId);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadAnswersFromBlocImplCopyWith<_$LoadAnswersFromBlocImpl> get copyWith =>
+      __$$LoadAnswersFromBlocImplCopyWithImpl<_$LoadAnswersFromBlocImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) fetchQuestionById,
+    required TResult Function() fetchAllQuestions,
+    required TResult Function(String surveyId) fetchQuestionListBySurveyId,
+    required TResult Function() submitAnswers,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
+  }) {
+    return loadAnswersFromBloc(surveyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? fetchQuestionById,
+    TResult? Function()? fetchAllQuestions,
+    TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult? Function()? submitAnswers,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
+  }) {
+    return loadAnswersFromBloc?.call(surveyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? fetchQuestionById,
+    TResult Function()? fetchAllQuestions,
+    TResult Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult Function()? submitAnswers,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
+    required TResult orElse(),
+  }) {
+    if (loadAnswersFromBloc != null) {
+      return loadAnswersFromBloc(surveyId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchQuestionById value) fetchQuestionById,
+    required TResult Function(_FetchAllQuestions value) fetchAllQuestions,
+    required TResult Function(_FetchQuestionListByProjectId value)
+        fetchQuestionListBySurveyId,
+    required TResult Function(_SubmitAnswers value) submitAnswers,
+    required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
+  }) {
+    return loadAnswersFromBloc(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult? Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult? Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult? Function(_SubmitAnswers value)? submitAnswers,
+    TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
+  }) {
+    return loadAnswersFromBloc?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult Function(_SubmitAnswers value)? submitAnswers,
+    TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
+    required TResult orElse(),
+  }) {
+    if (loadAnswersFromBloc != null) {
+      return loadAnswersFromBloc(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadAnswersFromBloc implements QuestionEvent {
+  const factory _LoadAnswersFromBloc(final String surveyId) =
+      _$LoadAnswersFromBlocImpl;
+
+  String get surveyId;
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$LoadAnswersFromBlocImplCopyWith<_$LoadAnswersFromBlocImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShowSnackBarImplCopyWith<$Res> {
+  factory _$$ShowSnackBarImplCopyWith(
+          _$ShowSnackBarImpl value, $Res Function(_$ShowSnackBarImpl) then) =
+      __$$ShowSnackBarImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ShowSnackBarImplCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res, _$ShowSnackBarImpl>
+    implements _$$ShowSnackBarImplCopyWith<$Res> {
+  __$$ShowSnackBarImplCopyWithImpl(
+      _$ShowSnackBarImpl _value, $Res Function(_$ShowSnackBarImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ShowSnackBarImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ShowSnackBarImpl implements _ShowSnackBar {
+  const _$ShowSnackBarImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.showSnackBar(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShowSnackBarImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShowSnackBarImplCopyWith<_$ShowSnackBarImpl> get copyWith =>
+      __$$ShowSnackBarImplCopyWithImpl<_$ShowSnackBarImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) fetchQuestionById,
+    required TResult Function() fetchAllQuestions,
+    required TResult Function(String surveyId) fetchQuestionListBySurveyId,
+    required TResult Function() submitAnswers,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
+  }) {
+    return showSnackBar(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? fetchQuestionById,
+    TResult? Function()? fetchAllQuestions,
+    TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult? Function()? submitAnswers,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
+  }) {
+    return showSnackBar?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? fetchQuestionById,
+    TResult Function()? fetchAllQuestions,
+    TResult Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult Function()? submitAnswers,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
+    required TResult orElse(),
+  }) {
+    if (showSnackBar != null) {
+      return showSnackBar(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchQuestionById value) fetchQuestionById,
+    required TResult Function(_FetchAllQuestions value) fetchAllQuestions,
+    required TResult Function(_FetchQuestionListByProjectId value)
+        fetchQuestionListBySurveyId,
+    required TResult Function(_SubmitAnswers value) submitAnswers,
+    required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
+  }) {
+    return showSnackBar(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult? Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult? Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult? Function(_SubmitAnswers value)? submitAnswers,
+    TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
+  }) {
+    return showSnackBar?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult Function(_SubmitAnswers value)? submitAnswers,
+    TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
+    required TResult orElse(),
+  }) {
+    if (showSnackBar != null) {
+      return showSnackBar(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowSnackBar implements QuestionEvent {
+  const factory _ShowSnackBar(final String message) = _$ShowSnackBarImpl;
+
+  String get message;
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ShowSnackBarImplCopyWith<_$ShowSnackBarImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClearAnswersImplCopyWith<$Res> {
+  factory _$$ClearAnswersImplCopyWith(
+          _$ClearAnswersImpl value, $Res Function(_$ClearAnswersImpl) then) =
+      __$$ClearAnswersImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String surveyId});
+}
+
+/// @nodoc
+class __$$ClearAnswersImplCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res, _$ClearAnswersImpl>
+    implements _$$ClearAnswersImplCopyWith<$Res> {
+  __$$ClearAnswersImplCopyWithImpl(
+      _$ClearAnswersImpl _value, $Res Function(_$ClearAnswersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? surveyId = null,
+  }) {
+    return _then(_$ClearAnswersImpl(
+      null == surveyId
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ClearAnswersImpl implements _ClearAnswers {
+  const _$ClearAnswersImpl(this.surveyId);
+
+  @override
+  final String surveyId;
+
+  @override
+  String toString() {
+    return 'QuestionEvent.clearAnswers(surveyId: $surveyId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClearAnswersImpl &&
+            (identical(other.surveyId, surveyId) ||
+                other.surveyId == surveyId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, surveyId);
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClearAnswersImplCopyWith<_$ClearAnswersImpl> get copyWith =>
+      __$$ClearAnswersImplCopyWithImpl<_$ClearAnswersImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) fetchQuestionById,
+    required TResult Function() fetchAllQuestions,
+    required TResult Function(String surveyId) fetchQuestionListBySurveyId,
+    required TResult Function() submitAnswers,
+    required TResult Function(Map<String, String> answer, String surveyId)
+        answerQuestion,
+    required TResult Function(String surveyId) loadAnswersFromBloc,
+    required TResult Function(String message) showSnackBar,
+    required TResult Function(String surveyId) clearAnswers,
+  }) {
+    return clearAnswers(surveyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? fetchQuestionById,
+    TResult? Function()? fetchAllQuestions,
+    TResult? Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult? Function()? submitAnswers,
+    TResult? Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult? Function(String surveyId)? loadAnswersFromBloc,
+    TResult? Function(String message)? showSnackBar,
+    TResult? Function(String surveyId)? clearAnswers,
+  }) {
+    return clearAnswers?.call(surveyId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? fetchQuestionById,
+    TResult Function()? fetchAllQuestions,
+    TResult Function(String surveyId)? fetchQuestionListBySurveyId,
+    TResult Function()? submitAnswers,
+    TResult Function(Map<String, String> answer, String surveyId)?
+        answerQuestion,
+    TResult Function(String surveyId)? loadAnswersFromBloc,
+    TResult Function(String message)? showSnackBar,
+    TResult Function(String surveyId)? clearAnswers,
+    required TResult orElse(),
+  }) {
+    if (clearAnswers != null) {
+      return clearAnswers(surveyId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FetchQuestionById value) fetchQuestionById,
+    required TResult Function(_FetchAllQuestions value) fetchAllQuestions,
+    required TResult Function(_FetchQuestionListByProjectId value)
+        fetchQuestionListBySurveyId,
+    required TResult Function(_SubmitAnswers value) submitAnswers,
+    required TResult Function(_AnswerQuestion value) answerQuestion,
+    required TResult Function(_LoadAnswersFromBloc value) loadAnswersFromBloc,
+    required TResult Function(_ShowSnackBar value) showSnackBar,
+    required TResult Function(_ClearAnswers value) clearAnswers,
+  }) {
+    return clearAnswers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult? Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult? Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult? Function(_SubmitAnswers value)? submitAnswers,
+    TResult? Function(_AnswerQuestion value)? answerQuestion,
+    TResult? Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult? Function(_ShowSnackBar value)? showSnackBar,
+    TResult? Function(_ClearAnswers value)? clearAnswers,
+  }) {
+    return clearAnswers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FetchQuestionById value)? fetchQuestionById,
+    TResult Function(_FetchAllQuestions value)? fetchAllQuestions,
+    TResult Function(_FetchQuestionListByProjectId value)?
+        fetchQuestionListBySurveyId,
+    TResult Function(_SubmitAnswers value)? submitAnswers,
+    TResult Function(_AnswerQuestion value)? answerQuestion,
+    TResult Function(_LoadAnswersFromBloc value)? loadAnswersFromBloc,
+    TResult Function(_ShowSnackBar value)? showSnackBar,
+    TResult Function(_ClearAnswers value)? clearAnswers,
+    required TResult orElse(),
+  }) {
+    if (clearAnswers != null) {
+      return clearAnswers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ClearAnswers implements QuestionEvent {
+  const factory _ClearAnswers(final String surveyId) = _$ClearAnswersImpl;
+
+  String get surveyId;
+
+  /// Create a copy of QuestionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ClearAnswersImplCopyWith<_$ClearAnswersImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$QuestionState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -898,12 +1599,15 @@ mixin _$QuestionState {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -913,10 +1617,13 @@ mixin _$QuestionState {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -926,10 +1633,13 @@ mixin _$QuestionState {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -999,12 +1709,16 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return initial();
   }
@@ -1014,12 +1728,16 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return initial?.call();
   }
@@ -1029,12 +1747,16 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1051,12 +1773,15 @@ class _$InitialImpl implements _Initial {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return initial(this);
   }
@@ -1069,10 +1794,13 @@ class _$InitialImpl implements _Initial {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return initial?.call(this);
   }
@@ -1085,10 +1813,13 @@ class _$InitialImpl implements _Initial {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1145,12 +1876,16 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return loadInProgress();
   }
@@ -1160,12 +1895,16 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return loadInProgress?.call();
   }
@@ -1175,12 +1914,16 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -1197,12 +1940,15 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return loadInProgress(this);
   }
@@ -1215,10 +1961,13 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return loadInProgress?.call(this);
   }
@@ -1231,10 +1980,13 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -1254,7 +2006,7 @@ abstract class _$$LoadSuccessImplCopyWith<$Res> {
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<QuestionEntity> questions});
+  $Res call({List<QuestionEntity> questions, bool loadAnswers});
 }
 
 /// @nodoc
@@ -1271,12 +2023,17 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? questions = null,
+    Object? loadAnswers = null,
   }) {
     return _then(_$LoadSuccessImpl(
       null == questions
           ? _value._questions
           : questions // ignore: cast_nullable_to_non_nullable
               as List<QuestionEntity>,
+      null == loadAnswers
+          ? _value.loadAnswers
+          : loadAnswers // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1284,7 +2041,8 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadSuccessImpl implements _LoadSuccess {
-  const _$LoadSuccessImpl(final List<QuestionEntity> questions)
+  const _$LoadSuccessImpl(
+      final List<QuestionEntity> questions, this.loadAnswers)
       : _questions = questions;
 
   final List<QuestionEntity> _questions;
@@ -1296,8 +2054,11 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   }
 
   @override
+  final bool loadAnswers;
+
+  @override
   String toString() {
-    return 'QuestionState.loadSuccess(questions: $questions)';
+    return 'QuestionState.loadSuccess(questions: $questions, loadAnswers: $loadAnswers)';
   }
 
   @override
@@ -1306,12 +2067,14 @@ class _$LoadSuccessImpl implements _LoadSuccess {
         (other.runtimeType == runtimeType &&
             other is _$LoadSuccessImpl &&
             const DeepCollectionEquality()
-                .equals(other._questions, _questions));
+                .equals(other._questions, _questions) &&
+            (identical(other.loadAnswers, loadAnswers) ||
+                other.loadAnswers == loadAnswers));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_questions));
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_questions), loadAnswers);
 
   /// Create a copy of QuestionState
   /// with the given fields replaced by the non-null parameter values.
@@ -1326,14 +2089,18 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
-    return loadSuccess(questions);
+    return loadSuccess(questions, loadAnswers);
   }
 
   @override
@@ -1341,14 +2108,18 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
-    return loadSuccess?.call(questions);
+    return loadSuccess?.call(questions, loadAnswers);
   }
 
   @override
@@ -1356,16 +2127,20 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(questions);
+      return loadSuccess(questions, loadAnswers);
     }
     return orElse();
   }
@@ -1378,12 +2153,15 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return loadSuccess(this);
   }
@@ -1396,10 +2174,13 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return loadSuccess?.call(this);
   }
@@ -1412,10 +2193,13 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -1426,10 +2210,12 @@ class _$LoadSuccessImpl implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements QuestionState {
-  const factory _LoadSuccess(final List<QuestionEntity> questions) =
+  const factory _LoadSuccess(
+          final List<QuestionEntity> questions, final bool loadAnswers) =
       _$LoadSuccessImpl;
 
   List<QuestionEntity> get questions;
+  bool get loadAnswers;
 
   /// Create a copy of QuestionState
   /// with the given fields replaced by the non-null parameter values.
@@ -1508,12 +2294,16 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return loadFailure(error);
   }
@@ -1523,12 +2313,16 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return loadFailure?.call(error);
   }
@@ -1538,12 +2332,16 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -1560,12 +2358,15 @@ class _$LoadFailureImpl implements _LoadFailure {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return loadFailure(this);
   }
@@ -1578,10 +2379,13 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return loadFailure?.call(this);
   }
@@ -1594,10 +2398,13 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -1662,12 +2469,16 @@ class _$AnswerChangedImpl implements _AnswerChanged {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return answerChanged();
   }
@@ -1677,12 +2488,16 @@ class _$AnswerChangedImpl implements _AnswerChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return answerChanged?.call();
   }
@@ -1692,12 +2507,16 @@ class _$AnswerChangedImpl implements _AnswerChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -1714,12 +2533,15 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return answerChanged(this);
   }
@@ -1732,10 +2554,13 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return answerChanged?.call(this);
   }
@@ -1748,10 +2573,13 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -1763,6 +2591,340 @@ class _$AnswerChangedImpl implements _AnswerChanged {
 
 abstract class _AnswerChanged implements QuestionState {
   const factory _AnswerChanged() = _$AnswerChangedImpl;
+}
+
+/// @nodoc
+abstract class _$$AnswerSavedErrorImplCopyWith<$Res> {
+  factory _$$AnswerSavedErrorImplCopyWith(_$AnswerSavedErrorImpl value,
+          $Res Function(_$AnswerSavedErrorImpl) then) =
+      __$$AnswerSavedErrorImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AnswerSavedErrorImplCopyWithImpl<$Res>
+    extends _$QuestionStateCopyWithImpl<$Res, _$AnswerSavedErrorImpl>
+    implements _$$AnswerSavedErrorImplCopyWith<$Res> {
+  __$$AnswerSavedErrorImplCopyWithImpl(_$AnswerSavedErrorImpl _value,
+      $Res Function(_$AnswerSavedErrorImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AnswerSavedErrorImpl implements _AnswerSavedError {
+  const _$AnswerSavedErrorImpl();
+
+  @override
+  String toString() {
+    return 'QuestionState.answerSavedError()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AnswerSavedErrorImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
+    required TResult Function(String error) loadFailure,
+    required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
+    required TResult Function() answerSubmittedSuccess,
+    required TResult Function(String error) answerSubmittedFailure,
+    required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
+  }) {
+    return answerSavedError();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult? Function(String error)? loadFailure,
+    TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
+    TResult? Function()? answerSubmittedSuccess,
+    TResult? Function(String error)? answerSubmittedFailure,
+    TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
+  }) {
+    return answerSavedError?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult Function(String error)? loadFailure,
+    TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
+    TResult Function()? answerSubmittedSuccess,
+    TResult Function(String error)? answerSubmittedFailure,
+    TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
+    required TResult orElse(),
+  }) {
+    if (answerSavedError != null) {
+      return answerSavedError();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
+    required TResult Function(_AnswerSubmittedSuccess value)
+        answerSubmittedSuccess,
+    required TResult Function(_AnswerSubmittedFailure value)
+        answerSubmittedFailure,
+    required TResult Function(_AnswerSubmittedInProgress value)
+        answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
+  }) {
+    return answerSavedError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
+    TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult? Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
+  }) {
+    return answerSavedError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
+    TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
+    required TResult orElse(),
+  }) {
+    if (answerSavedError != null) {
+      return answerSavedError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AnswerSavedError implements QuestionState {
+  const factory _AnswerSavedError() = _$AnswerSavedErrorImpl;
+}
+
+/// @nodoc
+abstract class _$$AnswerSaveImplCopyWith<$Res> {
+  factory _$$AnswerSaveImplCopyWith(
+          _$AnswerSaveImpl value, $Res Function(_$AnswerSaveImpl) then) =
+      __$$AnswerSaveImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AnswerSaveImplCopyWithImpl<$Res>
+    extends _$QuestionStateCopyWithImpl<$Res, _$AnswerSaveImpl>
+    implements _$$AnswerSaveImplCopyWith<$Res> {
+  __$$AnswerSaveImplCopyWithImpl(
+      _$AnswerSaveImpl _value, $Res Function(_$AnswerSaveImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$AnswerSaveImpl implements _AnswerSave {
+  const _$AnswerSaveImpl();
+
+  @override
+  String toString() {
+    return 'QuestionState.answerSaved()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AnswerSaveImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
+    required TResult Function(String error) loadFailure,
+    required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
+    required TResult Function() answerSubmittedSuccess,
+    required TResult Function(String error) answerSubmittedFailure,
+    required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
+  }) {
+    return answerSaved();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult? Function(String error)? loadFailure,
+    TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
+    TResult? Function()? answerSubmittedSuccess,
+    TResult? Function(String error)? answerSubmittedFailure,
+    TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
+  }) {
+    return answerSaved?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult Function(String error)? loadFailure,
+    TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
+    TResult Function()? answerSubmittedSuccess,
+    TResult Function(String error)? answerSubmittedFailure,
+    TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
+    required TResult orElse(),
+  }) {
+    if (answerSaved != null) {
+      return answerSaved();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
+    required TResult Function(_AnswerSubmittedSuccess value)
+        answerSubmittedSuccess,
+    required TResult Function(_AnswerSubmittedFailure value)
+        answerSubmittedFailure,
+    required TResult Function(_AnswerSubmittedInProgress value)
+        answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
+  }) {
+    return answerSaved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
+    TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult? Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
+  }) {
+    return answerSaved?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
+    TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
+    required TResult orElse(),
+  }) {
+    if (answerSaved != null) {
+      return answerSaved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AnswerSave implements QuestionState {
+  const factory _AnswerSave() = _$AnswerSaveImpl;
 }
 
 /// @nodoc
@@ -1811,12 +2973,16 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return answerSubmittedSuccess();
   }
@@ -1826,12 +2992,16 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return answerSubmittedSuccess?.call();
   }
@@ -1841,12 +3011,16 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerSubmittedSuccess != null) {
@@ -1863,12 +3037,15 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return answerSubmittedSuccess(this);
   }
@@ -1881,10 +3058,13 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return answerSubmittedSuccess?.call(this);
   }
@@ -1897,10 +3077,13 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerSubmittedSuccess != null) {
@@ -1987,12 +3170,16 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return answerSubmittedFailure(error);
   }
@@ -2002,12 +3189,16 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return answerSubmittedFailure?.call(error);
   }
@@ -2017,12 +3208,16 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerSubmittedFailure != null) {
@@ -2039,12 +3234,15 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return answerSubmittedFailure(this);
   }
@@ -2057,10 +3255,13 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return answerSubmittedFailure?.call(this);
   }
@@ -2073,10 +3274,13 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerSubmittedFailure != null) {
@@ -2145,12 +3349,16 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<QuestionEntity> questions) loadSuccess,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
     required TResult Function(String error) loadFailure,
     required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
     required TResult Function() answerSubmittedSuccess,
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
   }) {
     return answerSubmittedInProgress();
   }
@@ -2160,12 +3368,16 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult? Function(String error)? loadFailure,
     TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
     TResult? Function()? answerSubmittedSuccess,
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
   }) {
     return answerSubmittedInProgress?.call();
   }
@@ -2175,12 +3387,16 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<QuestionEntity> questions)? loadSuccess,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
     TResult Function(String error)? loadFailure,
     TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
     TResult Function()? answerSubmittedSuccess,
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerSubmittedInProgress != null) {
@@ -2197,12 +3413,15 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     required TResult Function(_LoadSuccess value) loadSuccess,
     required TResult Function(_LoadFailure value) loadFailure,
     required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
     required TResult Function(_AnswerSubmittedSuccess value)
         answerSubmittedSuccess,
     required TResult Function(_AnswerSubmittedFailure value)
         answerSubmittedFailure,
     required TResult Function(_AnswerSubmittedInProgress value)
         answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
   }) {
     return answerSubmittedInProgress(this);
   }
@@ -2215,10 +3434,13 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult? Function(_LoadSuccess value)? loadSuccess,
     TResult? Function(_LoadFailure value)? loadFailure,
     TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
     TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult? Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
   }) {
     return answerSubmittedInProgress?.call(this);
   }
@@ -2231,10 +3453,13 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult Function(_LoadSuccess value)? loadSuccess,
     TResult Function(_LoadFailure value)? loadFailure,
     TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
     TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
     TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
     TResult Function(_AnswerSubmittedInProgress value)?
         answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
     required TResult orElse(),
   }) {
     if (answerSubmittedInProgress != null) {
@@ -2246,4 +3471,207 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
 
 abstract class _AnswerSubmittedInProgress implements QuestionState {
   const factory _AnswerSubmittedInProgress() = _$AnswerSubmittedInProgressImpl;
+}
+
+/// @nodoc
+abstract class _$$SnackBarShowingImplCopyWith<$Res> {
+  factory _$$SnackBarShowingImplCopyWith(_$SnackBarShowingImpl value,
+          $Res Function(_$SnackBarShowingImpl) then) =
+      __$$SnackBarShowingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$SnackBarShowingImplCopyWithImpl<$Res>
+    extends _$QuestionStateCopyWithImpl<$Res, _$SnackBarShowingImpl>
+    implements _$$SnackBarShowingImplCopyWith<$Res> {
+  __$$SnackBarShowingImplCopyWithImpl(
+      _$SnackBarShowingImpl _value, $Res Function(_$SnackBarShowingImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$SnackBarShowingImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SnackBarShowingImpl implements _SnackBarShowing {
+  const _$SnackBarShowingImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'QuestionState.snackBarShowing(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SnackBarShowingImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SnackBarShowingImplCopyWith<_$SnackBarShowingImpl> get copyWith =>
+      __$$SnackBarShowingImplCopyWithImpl<_$SnackBarShowingImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(List<QuestionEntity> questions, bool loadAnswers)
+        loadSuccess,
+    required TResult Function(String error) loadFailure,
+    required TResult Function() answerChanged,
+    required TResult Function() answerSavedError,
+    required TResult Function() answerSaved,
+    required TResult Function() answerSubmittedSuccess,
+    required TResult Function(String error) answerSubmittedFailure,
+    required TResult Function() answerSubmittedInProgress,
+    required TResult Function(String message) snackBarShowing,
+  }) {
+    return snackBarShowing(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loadInProgress,
+    TResult? Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult? Function(String error)? loadFailure,
+    TResult? Function()? answerChanged,
+    TResult? Function()? answerSavedError,
+    TResult? Function()? answerSaved,
+    TResult? Function()? answerSubmittedSuccess,
+    TResult? Function(String error)? answerSubmittedFailure,
+    TResult? Function()? answerSubmittedInProgress,
+    TResult? Function(String message)? snackBarShowing,
+  }) {
+    return snackBarShowing?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<QuestionEntity> questions, bool loadAnswers)?
+        loadSuccess,
+    TResult Function(String error)? loadFailure,
+    TResult Function()? answerChanged,
+    TResult Function()? answerSavedError,
+    TResult Function()? answerSaved,
+    TResult Function()? answerSubmittedSuccess,
+    TResult Function(String error)? answerSubmittedFailure,
+    TResult Function()? answerSubmittedInProgress,
+    TResult Function(String message)? snackBarShowing,
+    required TResult orElse(),
+  }) {
+    if (snackBarShowing != null) {
+      return snackBarShowing(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_LoadFailure value) loadFailure,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_AnswerSavedError value) answerSavedError,
+    required TResult Function(_AnswerSave value) answerSaved,
+    required TResult Function(_AnswerSubmittedSuccess value)
+        answerSubmittedSuccess,
+    required TResult Function(_AnswerSubmittedFailure value)
+        answerSubmittedFailure,
+    required TResult Function(_AnswerSubmittedInProgress value)
+        answerSubmittedInProgress,
+    required TResult Function(_SnackBarShowing value) snackBarShowing,
+  }) {
+    return snackBarShowing(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadInProgress value)? loadInProgress,
+    TResult? Function(_LoadSuccess value)? loadSuccess,
+    TResult? Function(_LoadFailure value)? loadFailure,
+    TResult? Function(_AnswerChanged value)? answerChanged,
+    TResult? Function(_AnswerSavedError value)? answerSavedError,
+    TResult? Function(_AnswerSave value)? answerSaved,
+    TResult? Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult? Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult? Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult? Function(_SnackBarShowing value)? snackBarShowing,
+  }) {
+    return snackBarShowing?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_LoadFailure value)? loadFailure,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_AnswerSavedError value)? answerSavedError,
+    TResult Function(_AnswerSave value)? answerSaved,
+    TResult Function(_AnswerSubmittedSuccess value)? answerSubmittedSuccess,
+    TResult Function(_AnswerSubmittedFailure value)? answerSubmittedFailure,
+    TResult Function(_AnswerSubmittedInProgress value)?
+        answerSubmittedInProgress,
+    TResult Function(_SnackBarShowing value)? snackBarShowing,
+    required TResult orElse(),
+  }) {
+    if (snackBarShowing != null) {
+      return snackBarShowing(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SnackBarShowing implements QuestionState {
+  const factory _SnackBarShowing(final String message) = _$SnackBarShowingImpl;
+
+  String get message;
+
+  /// Create a copy of QuestionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SnackBarShowingImplCopyWith<_$SnackBarShowingImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

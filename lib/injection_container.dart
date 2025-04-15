@@ -1,4 +1,3 @@
-import 'package:d_c_app/src/core/internet_services/dio.dart';
 import 'package:d_c_app/src/core/shared/constants.dart';
 import 'package:d_c_app/src/features/project_list/data/data_sources/remote/project_api_service.dart';
 import 'package:d_c_app/src/features/project_list/data/repo/project_repository_impl.dart';
@@ -10,6 +9,7 @@ import 'package:d_c_app/src/features/question_list/data/repo/question_repository
 import 'package:d_c_app/src/features/question_list/domain/repo/question_repository.dart';
 import 'package:d_c_app/src/features/question_list/domain/use_case/create_question_response.dart';
 import 'package:d_c_app/src/features/question_list/domain/use_case/get_question_list_by_survey_id.dart';
+import 'package:d_c_app/src/features/question_list/presentation/bloc/cubit/answer_cubit.dart';
 import 'package:d_c_app/src/features/question_list/presentation/bloc/question/question_bloc.dart';
 import 'package:d_c_app/src/features/survey_list/data/data_sources/remote/survey_api_service.dart';
 import 'package:d_c_app/src/features/survey_list/data/repo/survey_repository_impl.dart';
@@ -24,6 +24,8 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
+  sl.allowReassignment = true;
+
   final dio = Dio(
     BaseOptions(
       baseUrl: AppConstants.apiBaseUrl,
@@ -90,4 +92,6 @@ Future<void> initializeDependencies() async {
 
   // Question Feature: blocs
   sl.registerSingleton<QuestionBloc>(QuestionBloc(sl(), sl()));
+
+  sl.registerSingleton<AnswerCubit>(AnswerCubit());
 }

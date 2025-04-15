@@ -27,7 +27,7 @@ mixin _$AnswerListReponse {
   @JsonKey(name: "answer_list_name")
   String get answerListName => throw _privateConstructorUsedError;
   @JsonKey(name: "answers")
-  List<Answer> get answers => throw _privateConstructorUsedError;
+  List<AnswerResponse> get answers => throw _privateConstructorUsedError;
 
   /// Serializes this AnswerListReponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $AnswerListReponseCopyWith<$Res> {
       {@JsonKey(name: "id") String id,
       @JsonKey(name: "question_id") String questionId,
       @JsonKey(name: "answer_list_name") String answerListName,
-      @JsonKey(name: "answers") List<Answer> answers});
+      @JsonKey(name: "answers") List<AnswerResponse> answers});
 }
 
 /// @nodoc
@@ -88,7 +88,7 @@ class _$AnswerListReponseCopyWithImpl<$Res, $Val extends AnswerListReponse>
       answers: null == answers
           ? _value.answers
           : answers // ignore: cast_nullable_to_non_nullable
-              as List<Answer>,
+              as List<AnswerResponse>,
     ) as $Val);
   }
 }
@@ -105,7 +105,7 @@ abstract class _$$AnswerListReponseImplCopyWith<$Res>
       {@JsonKey(name: "id") String id,
       @JsonKey(name: "question_id") String questionId,
       @JsonKey(name: "answer_list_name") String answerListName,
-      @JsonKey(name: "answers") List<Answer> answers});
+      @JsonKey(name: "answers") List<AnswerResponse> answers});
 }
 
 /// @nodoc
@@ -142,7 +142,7 @@ class __$$AnswerListReponseImplCopyWithImpl<$Res>
       answers: null == answers
           ? _value._answers
           : answers // ignore: cast_nullable_to_non_nullable
-              as List<Answer>,
+              as List<AnswerResponse>,
     ));
   }
 }
@@ -154,7 +154,7 @@ class _$AnswerListReponseImpl implements _AnswerListReponse {
       {@JsonKey(name: "id") required this.id,
       @JsonKey(name: "question_id") required this.questionId,
       @JsonKey(name: "answer_list_name") required this.answerListName,
-      @JsonKey(name: "answers") required final List<Answer> answers})
+      @JsonKey(name: "answers") required final List<AnswerResponse> answers})
       : _answers = answers;
 
   factory _$AnswerListReponseImpl.fromJson(Map<String, dynamic> json) =>
@@ -169,10 +169,10 @@ class _$AnswerListReponseImpl implements _AnswerListReponse {
   @override
   @JsonKey(name: "answer_list_name")
   final String answerListName;
-  final List<Answer> _answers;
+  final List<AnswerResponse> _answers;
   @override
   @JsonKey(name: "answers")
-  List<Answer> get answers {
+  List<AnswerResponse> get answers {
     if (_answers is EqualUnmodifiableListView) return _answers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_answers);
@@ -224,7 +224,7 @@ abstract class _AnswerListReponse implements AnswerListReponse {
       @JsonKey(name: "question_id") required final String questionId,
       @JsonKey(name: "answer_list_name") required final String answerListName,
       @JsonKey(name: "answers")
-      required final List<Answer> answers}) = _$AnswerListReponseImpl;
+      required final List<AnswerResponse> answers}) = _$AnswerListReponseImpl;
 
   factory _AnswerListReponse.fromJson(Map<String, dynamic> json) =
       _$AnswerListReponseImpl.fromJson;
@@ -240,7 +240,7 @@ abstract class _AnswerListReponse implements AnswerListReponse {
   String get answerListName;
   @override
   @JsonKey(name: "answers")
-  List<Answer> get answers;
+  List<AnswerResponse> get answers;
 
   /// Create a copy of AnswerListReponse
   /// with the given fields replaced by the non-null parameter values.
@@ -250,12 +250,12 @@ abstract class _AnswerListReponse implements AnswerListReponse {
       throw _privateConstructorUsedError;
 }
 
-Answer _$AnswerFromJson(Map<String, dynamic> json) {
+AnswerResponse _$AnswerResponseFromJson(Map<String, dynamic> json) {
   return _Answer.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Answer {
+mixin _$AnswerResponse {
   @JsonKey(name: "id")
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: "answer_text")
@@ -263,42 +263,52 @@ mixin _$Answer {
   @JsonKey(name: "answer_list_id")
   String get answerListId => throw _privateConstructorUsedError;
   @JsonKey(name: "related_answer_id")
-  RelatedAnswerId get relatedAnswerId => throw _privateConstructorUsedError;
+  NullableString get relatedAnswerIds => throw _privateConstructorUsedError;
+  @JsonKey(name: "parent_answer_ids")
+  NullableString get parentAnswerIds => throw _privateConstructorUsedError;
+  @JsonKey(name: "child_answer_ids")
+  NullableString get childAnswerIds => throw _privateConstructorUsedError;
 
-  /// Serializes this Answer to a JSON map.
+  /// Serializes this AnswerResponse to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of Answer
+  /// Create a copy of AnswerResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AnswerCopyWith<Answer> get copyWith => throw _privateConstructorUsedError;
+  $AnswerResponseCopyWith<AnswerResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AnswerCopyWith<$Res> {
-  factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
-      _$AnswerCopyWithImpl<$Res, Answer>;
+abstract class $AnswerResponseCopyWith<$Res> {
+  factory $AnswerResponseCopyWith(
+          AnswerResponse value, $Res Function(AnswerResponse) then) =
+      _$AnswerResponseCopyWithImpl<$Res, AnswerResponse>;
   @useResult
   $Res call(
       {@JsonKey(name: "id") String id,
       @JsonKey(name: "answer_text") String answerText,
       @JsonKey(name: "answer_list_id") String answerListId,
-      @JsonKey(name: "related_answer_id") RelatedAnswerId relatedAnswerId});
+      @JsonKey(name: "related_answer_id") NullableString relatedAnswerIds,
+      @JsonKey(name: "parent_answer_ids") NullableString parentAnswerIds,
+      @JsonKey(name: "child_answer_ids") NullableString childAnswerIds});
 
-  $RelatedAnswerIdCopyWith<$Res> get relatedAnswerId;
+  $NullableStringCopyWith<$Res> get relatedAnswerIds;
+  $NullableStringCopyWith<$Res> get parentAnswerIds;
+  $NullableStringCopyWith<$Res> get childAnswerIds;
 }
 
 /// @nodoc
-class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
-    implements $AnswerCopyWith<$Res> {
-  _$AnswerCopyWithImpl(this._value, this._then);
+class _$AnswerResponseCopyWithImpl<$Res, $Val extends AnswerResponse>
+    implements $AnswerResponseCopyWith<$Res> {
+  _$AnswerResponseCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Answer
+  /// Create a copy of AnswerResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -306,7 +316,9 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
     Object? id = null,
     Object? answerText = null,
     Object? answerListId = null,
-    Object? relatedAnswerId = null,
+    Object? relatedAnswerIds = null,
+    Object? parentAnswerIds = null,
+    Object? childAnswerIds = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -321,26 +333,55 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
           ? _value.answerListId
           : answerListId // ignore: cast_nullable_to_non_nullable
               as String,
-      relatedAnswerId: null == relatedAnswerId
-          ? _value.relatedAnswerId
-          : relatedAnswerId // ignore: cast_nullable_to_non_nullable
-              as RelatedAnswerId,
+      relatedAnswerIds: null == relatedAnswerIds
+          ? _value.relatedAnswerIds
+          : relatedAnswerIds // ignore: cast_nullable_to_non_nullable
+              as NullableString,
+      parentAnswerIds: null == parentAnswerIds
+          ? _value.parentAnswerIds
+          : parentAnswerIds // ignore: cast_nullable_to_non_nullable
+              as NullableString,
+      childAnswerIds: null == childAnswerIds
+          ? _value.childAnswerIds
+          : childAnswerIds // ignore: cast_nullable_to_non_nullable
+              as NullableString,
     ) as $Val);
   }
 
-  /// Create a copy of Answer
+  /// Create a copy of AnswerResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $RelatedAnswerIdCopyWith<$Res> get relatedAnswerId {
-    return $RelatedAnswerIdCopyWith<$Res>(_value.relatedAnswerId, (value) {
-      return _then(_value.copyWith(relatedAnswerId: value) as $Val);
+  $NullableStringCopyWith<$Res> get relatedAnswerIds {
+    return $NullableStringCopyWith<$Res>(_value.relatedAnswerIds, (value) {
+      return _then(_value.copyWith(relatedAnswerIds: value) as $Val);
+    });
+  }
+
+  /// Create a copy of AnswerResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $NullableStringCopyWith<$Res> get parentAnswerIds {
+    return $NullableStringCopyWith<$Res>(_value.parentAnswerIds, (value) {
+      return _then(_value.copyWith(parentAnswerIds: value) as $Val);
+    });
+  }
+
+  /// Create a copy of AnswerResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $NullableStringCopyWith<$Res> get childAnswerIds {
+    return $NullableStringCopyWith<$Res>(_value.childAnswerIds, (value) {
+      return _then(_value.copyWith(childAnswerIds: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$AnswerImplCopyWith<$Res> implements $AnswerCopyWith<$Res> {
+abstract class _$$AnswerImplCopyWith<$Res>
+    implements $AnswerResponseCopyWith<$Res> {
   factory _$$AnswerImplCopyWith(
           _$AnswerImpl value, $Res Function(_$AnswerImpl) then) =
       __$$AnswerImplCopyWithImpl<$Res>;
@@ -350,21 +391,27 @@ abstract class _$$AnswerImplCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       {@JsonKey(name: "id") String id,
       @JsonKey(name: "answer_text") String answerText,
       @JsonKey(name: "answer_list_id") String answerListId,
-      @JsonKey(name: "related_answer_id") RelatedAnswerId relatedAnswerId});
+      @JsonKey(name: "related_answer_id") NullableString relatedAnswerIds,
+      @JsonKey(name: "parent_answer_ids") NullableString parentAnswerIds,
+      @JsonKey(name: "child_answer_ids") NullableString childAnswerIds});
 
   @override
-  $RelatedAnswerIdCopyWith<$Res> get relatedAnswerId;
+  $NullableStringCopyWith<$Res> get relatedAnswerIds;
+  @override
+  $NullableStringCopyWith<$Res> get parentAnswerIds;
+  @override
+  $NullableStringCopyWith<$Res> get childAnswerIds;
 }
 
 /// @nodoc
 class __$$AnswerImplCopyWithImpl<$Res>
-    extends _$AnswerCopyWithImpl<$Res, _$AnswerImpl>
+    extends _$AnswerResponseCopyWithImpl<$Res, _$AnswerImpl>
     implements _$$AnswerImplCopyWith<$Res> {
   __$$AnswerImplCopyWithImpl(
       _$AnswerImpl _value, $Res Function(_$AnswerImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Answer
+  /// Create a copy of AnswerResponse
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -372,7 +419,9 @@ class __$$AnswerImplCopyWithImpl<$Res>
     Object? id = null,
     Object? answerText = null,
     Object? answerListId = null,
-    Object? relatedAnswerId = null,
+    Object? relatedAnswerIds = null,
+    Object? parentAnswerIds = null,
+    Object? childAnswerIds = null,
   }) {
     return _then(_$AnswerImpl(
       id: null == id
@@ -387,10 +436,18 @@ class __$$AnswerImplCopyWithImpl<$Res>
           ? _value.answerListId
           : answerListId // ignore: cast_nullable_to_non_nullable
               as String,
-      relatedAnswerId: null == relatedAnswerId
-          ? _value.relatedAnswerId
-          : relatedAnswerId // ignore: cast_nullable_to_non_nullable
-              as RelatedAnswerId,
+      relatedAnswerIds: null == relatedAnswerIds
+          ? _value.relatedAnswerIds
+          : relatedAnswerIds // ignore: cast_nullable_to_non_nullable
+              as NullableString,
+      parentAnswerIds: null == parentAnswerIds
+          ? _value.parentAnswerIds
+          : parentAnswerIds // ignore: cast_nullable_to_non_nullable
+              as NullableString,
+      childAnswerIds: null == childAnswerIds
+          ? _value.childAnswerIds
+          : childAnswerIds // ignore: cast_nullable_to_non_nullable
+              as NullableString,
     ));
   }
 }
@@ -402,7 +459,9 @@ class _$AnswerImpl implements _Answer {
       {@JsonKey(name: "id") required this.id,
       @JsonKey(name: "answer_text") required this.answerText,
       @JsonKey(name: "answer_list_id") required this.answerListId,
-      @JsonKey(name: "related_answer_id") required this.relatedAnswerId});
+      @JsonKey(name: "related_answer_id") required this.relatedAnswerIds,
+      @JsonKey(name: "parent_answer_ids") required this.parentAnswerIds,
+      @JsonKey(name: "child_answer_ids") required this.childAnswerIds});
 
   factory _$AnswerImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnswerImplFromJson(json);
@@ -418,11 +477,17 @@ class _$AnswerImpl implements _Answer {
   final String answerListId;
   @override
   @JsonKey(name: "related_answer_id")
-  final RelatedAnswerId relatedAnswerId;
+  final NullableString relatedAnswerIds;
+  @override
+  @JsonKey(name: "parent_answer_ids")
+  final NullableString parentAnswerIds;
+  @override
+  @JsonKey(name: "child_answer_ids")
+  final NullableString childAnswerIds;
 
   @override
   String toString() {
-    return 'Answer(id: $id, answerText: $answerText, answerListId: $answerListId, relatedAnswerId: $relatedAnswerId)';
+    return 'AnswerResponse(id: $id, answerText: $answerText, answerListId: $answerListId, relatedAnswerIds: $relatedAnswerIds, parentAnswerIds: $parentAnswerIds, childAnswerIds: $childAnswerIds)';
   }
 
   @override
@@ -435,16 +500,20 @@ class _$AnswerImpl implements _Answer {
                 other.answerText == answerText) &&
             (identical(other.answerListId, answerListId) ||
                 other.answerListId == answerListId) &&
-            (identical(other.relatedAnswerId, relatedAnswerId) ||
-                other.relatedAnswerId == relatedAnswerId));
+            (identical(other.relatedAnswerIds, relatedAnswerIds) ||
+                other.relatedAnswerIds == relatedAnswerIds) &&
+            (identical(other.parentAnswerIds, parentAnswerIds) ||
+                other.parentAnswerIds == parentAnswerIds) &&
+            (identical(other.childAnswerIds, childAnswerIds) ||
+                other.childAnswerIds == childAnswerIds));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, answerText, answerListId, relatedAnswerId);
+  int get hashCode => Object.hash(runtimeType, id, answerText, answerListId,
+      relatedAnswerIds, parentAnswerIds, childAnswerIds);
 
-  /// Create a copy of Answer
+  /// Create a copy of AnswerResponse
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
@@ -460,13 +529,17 @@ class _$AnswerImpl implements _Answer {
   }
 }
 
-abstract class _Answer implements Answer {
+abstract class _Answer implements AnswerResponse {
   const factory _Answer(
       {@JsonKey(name: "id") required final String id,
       @JsonKey(name: "answer_text") required final String answerText,
       @JsonKey(name: "answer_list_id") required final String answerListId,
       @JsonKey(name: "related_answer_id")
-      required final RelatedAnswerId relatedAnswerId}) = _$AnswerImpl;
+      required final NullableString relatedAnswerIds,
+      @JsonKey(name: "parent_answer_ids")
+      required final NullableString parentAnswerIds,
+      @JsonKey(name: "child_answer_ids")
+      required final NullableString childAnswerIds}) = _$AnswerImpl;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$AnswerImpl.fromJson;
 
@@ -481,9 +554,15 @@ abstract class _Answer implements Answer {
   String get answerListId;
   @override
   @JsonKey(name: "related_answer_id")
-  RelatedAnswerId get relatedAnswerId;
+  NullableString get relatedAnswerIds;
+  @override
+  @JsonKey(name: "parent_answer_ids")
+  NullableString get parentAnswerIds;
+  @override
+  @JsonKey(name: "child_answer_ids")
+  NullableString get childAnswerIds;
 
-  /// Create a copy of Answer
+  /// Create a copy of AnswerResponse
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -491,32 +570,32 @@ abstract class _Answer implements Answer {
       throw _privateConstructorUsedError;
 }
 
-RelatedAnswerId _$RelatedAnswerIdFromJson(Map<String, dynamic> json) {
-  return _RelatedAnswerId.fromJson(json);
+NullableString _$NullableStringFromJson(Map<String, dynamic> json) {
+  return _NullableString.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RelatedAnswerId {
+mixin _$NullableString {
   @JsonKey(name: "String")
   String get string => throw _privateConstructorUsedError;
   @JsonKey(name: "Valid")
   bool get valid => throw _privateConstructorUsedError;
 
-  /// Serializes this RelatedAnswerId to a JSON map.
+  /// Serializes this NullableString to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of RelatedAnswerId
+  /// Create a copy of NullableString
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $RelatedAnswerIdCopyWith<RelatedAnswerId> get copyWith =>
+  $NullableStringCopyWith<NullableString> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RelatedAnswerIdCopyWith<$Res> {
-  factory $RelatedAnswerIdCopyWith(
-          RelatedAnswerId value, $Res Function(RelatedAnswerId) then) =
-      _$RelatedAnswerIdCopyWithImpl<$Res, RelatedAnswerId>;
+abstract class $NullableStringCopyWith<$Res> {
+  factory $NullableStringCopyWith(
+          NullableString value, $Res Function(NullableString) then) =
+      _$NullableStringCopyWithImpl<$Res, NullableString>;
   @useResult
   $Res call(
       {@JsonKey(name: "String") String string,
@@ -524,16 +603,16 @@ abstract class $RelatedAnswerIdCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RelatedAnswerIdCopyWithImpl<$Res, $Val extends RelatedAnswerId>
-    implements $RelatedAnswerIdCopyWith<$Res> {
-  _$RelatedAnswerIdCopyWithImpl(this._value, this._then);
+class _$NullableStringCopyWithImpl<$Res, $Val extends NullableString>
+    implements $NullableStringCopyWith<$Res> {
+  _$NullableStringCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of RelatedAnswerId
+  /// Create a copy of NullableString
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -555,11 +634,11 @@ class _$RelatedAnswerIdCopyWithImpl<$Res, $Val extends RelatedAnswerId>
 }
 
 /// @nodoc
-abstract class _$$RelatedAnswerIdImplCopyWith<$Res>
-    implements $RelatedAnswerIdCopyWith<$Res> {
-  factory _$$RelatedAnswerIdImplCopyWith(_$RelatedAnswerIdImpl value,
-          $Res Function(_$RelatedAnswerIdImpl) then) =
-      __$$RelatedAnswerIdImplCopyWithImpl<$Res>;
+abstract class _$$NullableStringImplCopyWith<$Res>
+    implements $NullableStringCopyWith<$Res> {
+  factory _$$NullableStringImplCopyWith(_$NullableStringImpl value,
+          $Res Function(_$NullableStringImpl) then) =
+      __$$NullableStringImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -568,14 +647,14 @@ abstract class _$$RelatedAnswerIdImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$RelatedAnswerIdImplCopyWithImpl<$Res>
-    extends _$RelatedAnswerIdCopyWithImpl<$Res, _$RelatedAnswerIdImpl>
-    implements _$$RelatedAnswerIdImplCopyWith<$Res> {
-  __$$RelatedAnswerIdImplCopyWithImpl(
-      _$RelatedAnswerIdImpl _value, $Res Function(_$RelatedAnswerIdImpl) _then)
+class __$$NullableStringImplCopyWithImpl<$Res>
+    extends _$NullableStringCopyWithImpl<$Res, _$NullableStringImpl>
+    implements _$$NullableStringImplCopyWith<$Res> {
+  __$$NullableStringImplCopyWithImpl(
+      _$NullableStringImpl _value, $Res Function(_$NullableStringImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of RelatedAnswerId
+  /// Create a copy of NullableString
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -583,7 +662,7 @@ class __$$RelatedAnswerIdImplCopyWithImpl<$Res>
     Object? string = null,
     Object? valid = null,
   }) {
-    return _then(_$RelatedAnswerIdImpl(
+    return _then(_$NullableStringImpl(
       string: null == string
           ? _value.string
           : string // ignore: cast_nullable_to_non_nullable
@@ -598,13 +677,13 @@ class __$$RelatedAnswerIdImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RelatedAnswerIdImpl implements _RelatedAnswerId {
-  const _$RelatedAnswerIdImpl(
+class _$NullableStringImpl implements _NullableString {
+  const _$NullableStringImpl(
       {@JsonKey(name: "String") required this.string,
       @JsonKey(name: "Valid") required this.valid});
 
-  factory _$RelatedAnswerIdImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RelatedAnswerIdImplFromJson(json);
+  factory _$NullableStringImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NullableStringImplFromJson(json);
 
   @override
   @JsonKey(name: "String")
@@ -615,14 +694,14 @@ class _$RelatedAnswerIdImpl implements _RelatedAnswerId {
 
   @override
   String toString() {
-    return 'RelatedAnswerId(string: $string, valid: $valid)';
+    return 'NullableString(string: $string, valid: $valid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RelatedAnswerIdImpl &&
+            other is _$NullableStringImpl &&
             (identical(other.string, string) || other.string == string) &&
             (identical(other.valid, valid) || other.valid == valid));
   }
@@ -631,31 +710,31 @@ class _$RelatedAnswerIdImpl implements _RelatedAnswerId {
   @override
   int get hashCode => Object.hash(runtimeType, string, valid);
 
-  /// Create a copy of RelatedAnswerId
+  /// Create a copy of NullableString
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RelatedAnswerIdImplCopyWith<_$RelatedAnswerIdImpl> get copyWith =>
-      __$$RelatedAnswerIdImplCopyWithImpl<_$RelatedAnswerIdImpl>(
+  _$$NullableStringImplCopyWith<_$NullableStringImpl> get copyWith =>
+      __$$NullableStringImplCopyWithImpl<_$NullableStringImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RelatedAnswerIdImplToJson(
+    return _$$NullableStringImplToJson(
       this,
     );
   }
 }
 
-abstract class _RelatedAnswerId implements RelatedAnswerId {
-  const factory _RelatedAnswerId(
+abstract class _NullableString implements NullableString {
+  const factory _NullableString(
           {@JsonKey(name: "String") required final String string,
           @JsonKey(name: "Valid") required final bool valid}) =
-      _$RelatedAnswerIdImpl;
+      _$NullableStringImpl;
 
-  factory _RelatedAnswerId.fromJson(Map<String, dynamic> json) =
-      _$RelatedAnswerIdImpl.fromJson;
+  factory _NullableString.fromJson(Map<String, dynamic> json) =
+      _$NullableStringImpl.fromJson;
 
   @override
   @JsonKey(name: "String")
@@ -664,10 +743,10 @@ abstract class _RelatedAnswerId implements RelatedAnswerId {
   @JsonKey(name: "Valid")
   bool get valid;
 
-  /// Create a copy of RelatedAnswerId
+  /// Create a copy of NullableString
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RelatedAnswerIdImplCopyWith<_$RelatedAnswerIdImpl> get copyWith =>
+  _$$NullableStringImplCopyWith<_$NullableStringImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

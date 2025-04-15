@@ -59,6 +59,7 @@ class _ProjectListViewState extends State<ProjectListView> {
   }
 }
 
+// ignore: must_be_immutable
 class ProjectList extends StatelessWidget {
   ProjectList({
     super.key,
@@ -91,17 +92,17 @@ class ProjectList extends StatelessWidget {
             child: Column(
               children: [
                 Text(_title, style: Theme.of(context).textTheme.titleLarge),
-                RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: 'Want to import a Project?',
-                      style: Theme.of(context).textTheme.bodyMedium),
-                  TextSpan(
-                      text: ' Click here',
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontWeight: FontWeight.bold)),
-                ])),
+                // RichText(
+                //     text: TextSpan(children: [
+                //   TextSpan(
+                //       text: 'Want to import a Project?',
+                //       style: Theme.of(context).textTheme.bodyMedium),
+                //   TextSpan(
+                //       text: ' Click here',
+                //       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                //           color: Theme.of(context).primaryColor,
+                //           fontWeight: FontWeight.bold)),
+                // ])),
               ],
             ),
           ),

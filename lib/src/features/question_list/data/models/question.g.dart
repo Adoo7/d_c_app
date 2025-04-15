@@ -20,6 +20,9 @@ _$QuestionImpl _$$QuestionImplFromJson(Map<String, dynamic> json) =>
           json['related_question_id'] as Map<String, dynamic>),
       answerListId: NullableStringModel.fromJson(
           json['answer_list_id'] as Map<String, dynamic>),
+      orderNumber: json['order_number'] as String,
+      tabNumber: json['tab_number'] as String,
+      tabName: json['tab_name'] as String,
     );
 
 Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>
@@ -32,4 +35,7 @@ Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>
       'required': instance.required,
       'related_question_id': instance.relatedQuestionId,
       'answer_list_id': instance.answerListId,
+      'order_number': instance.orderNumber,
+      'tab_number': instance.tabNumber,
+      'tab_name': instance.tabName,
     };

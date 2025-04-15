@@ -37,6 +37,12 @@ mixin _$QuestionModel {
       throw _privateConstructorUsedError;
   @JsonKey(name: "answer_list_id")
   NullableStringModel get answerListId => throw _privateConstructorUsedError;
+  @JsonKey(name: "order_number")
+  String get orderNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: "tab_number")
+  String get tabNumber => throw _privateConstructorUsedError;
+  @JsonKey(name: "tab_name")
+  String get tabName => throw _privateConstructorUsedError;
 
   /// Serializes this QuestionModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -63,7 +69,10 @@ abstract class $QuestionModelCopyWith<$Res> {
       @JsonKey(name: "required") bool required,
       @JsonKey(name: "related_question_id")
       NullableStringModel relatedQuestionId,
-      @JsonKey(name: "answer_list_id") NullableStringModel answerListId});
+      @JsonKey(name: "answer_list_id") NullableStringModel answerListId,
+      @JsonKey(name: "order_number") String orderNumber,
+      @JsonKey(name: "tab_number") String tabNumber,
+      @JsonKey(name: "tab_name") String tabName});
 
   $NullableStringModelCopyWith<$Res> get surveyId;
   $NullableStringModelCopyWith<$Res> get answer;
@@ -94,6 +103,9 @@ class _$QuestionModelCopyWithImpl<$Res, $Val extends QuestionModel>
     Object? required = null,
     Object? relatedQuestionId = null,
     Object? answerListId = null,
+    Object? orderNumber = null,
+    Object? tabNumber = null,
+    Object? tabName = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -128,6 +140,18 @@ class _$QuestionModelCopyWithImpl<$Res, $Val extends QuestionModel>
           ? _value.answerListId
           : answerListId // ignore: cast_nullable_to_non_nullable
               as NullableStringModel,
+      orderNumber: null == orderNumber
+          ? _value.orderNumber
+          : orderNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      tabNumber: null == tabNumber
+          ? _value.tabNumber
+          : tabNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      tabName: null == tabName
+          ? _value.tabName
+          : tabName // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -190,7 +214,10 @@ abstract class _$$QuestionImplCopyWith<$Res>
       @JsonKey(name: "required") bool required,
       @JsonKey(name: "related_question_id")
       NullableStringModel relatedQuestionId,
-      @JsonKey(name: "answer_list_id") NullableStringModel answerListId});
+      @JsonKey(name: "answer_list_id") NullableStringModel answerListId,
+      @JsonKey(name: "order_number") String orderNumber,
+      @JsonKey(name: "tab_number") String tabNumber,
+      @JsonKey(name: "tab_name") String tabName});
 
   @override
   $NullableStringModelCopyWith<$Res> get surveyId;
@@ -223,6 +250,9 @@ class __$$QuestionImplCopyWithImpl<$Res>
     Object? required = null,
     Object? relatedQuestionId = null,
     Object? answerListId = null,
+    Object? orderNumber = null,
+    Object? tabNumber = null,
+    Object? tabName = null,
   }) {
     return _then(_$QuestionImpl(
       id: null == id
@@ -257,6 +287,18 @@ class __$$QuestionImplCopyWithImpl<$Res>
           ? _value.answerListId
           : answerListId // ignore: cast_nullable_to_non_nullable
               as NullableStringModel,
+      orderNumber: null == orderNumber
+          ? _value.orderNumber
+          : orderNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      tabNumber: null == tabNumber
+          ? _value.tabNumber
+          : tabNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      tabName: null == tabName
+          ? _value.tabName
+          : tabName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -272,7 +314,10 @@ class _$QuestionImpl implements _Question {
       @JsonKey(name: "answer") required this.answer,
       @JsonKey(name: "required") required this.required,
       @JsonKey(name: "related_question_id") required this.relatedQuestionId,
-      @JsonKey(name: "answer_list_id") required this.answerListId});
+      @JsonKey(name: "answer_list_id") required this.answerListId,
+      @JsonKey(name: "order_number") required this.orderNumber,
+      @JsonKey(name: "tab_number") required this.tabNumber,
+      @JsonKey(name: "tab_name") required this.tabName});
 
   factory _$QuestionImpl.fromJson(Map<String, dynamic> json) =>
       _$$QuestionImplFromJson(json);
@@ -301,10 +346,19 @@ class _$QuestionImpl implements _Question {
   @override
   @JsonKey(name: "answer_list_id")
   final NullableStringModel answerListId;
+  @override
+  @JsonKey(name: "order_number")
+  final String orderNumber;
+  @override
+  @JsonKey(name: "tab_number")
+  final String tabNumber;
+  @override
+  @JsonKey(name: "tab_name")
+  final String tabName;
 
   @override
   String toString() {
-    return 'QuestionModel(id: $id, question: $question, surveyId: $surveyId, answerType: $answerType, answer: $answer, required: $required, relatedQuestionId: $relatedQuestionId, answerListId: $answerListId)';
+    return 'QuestionModel(id: $id, question: $question, surveyId: $surveyId, answerType: $answerType, answer: $answer, required: $required, relatedQuestionId: $relatedQuestionId, answerListId: $answerListId, orderNumber: $orderNumber, tabNumber: $tabNumber, tabName: $tabName)';
   }
 
   @override
@@ -325,13 +379,29 @@ class _$QuestionImpl implements _Question {
             (identical(other.relatedQuestionId, relatedQuestionId) ||
                 other.relatedQuestionId == relatedQuestionId) &&
             (identical(other.answerListId, answerListId) ||
-                other.answerListId == answerListId));
+                other.answerListId == answerListId) &&
+            (identical(other.orderNumber, orderNumber) ||
+                other.orderNumber == orderNumber) &&
+            (identical(other.tabNumber, tabNumber) ||
+                other.tabNumber == tabNumber) &&
+            (identical(other.tabName, tabName) || other.tabName == tabName));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, question, surveyId,
-      answerType, answer, required, relatedQuestionId, answerListId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      question,
+      surveyId,
+      answerType,
+      answer,
+      required,
+      relatedQuestionId,
+      answerListId,
+      orderNumber,
+      tabNumber,
+      tabName);
 
   /// Create a copy of QuestionModel
   /// with the given fields replaced by the non-null parameter values.
@@ -360,7 +430,11 @@ abstract class _Question implements QuestionModel {
       @JsonKey(name: "related_question_id")
       required final NullableStringModel relatedQuestionId,
       @JsonKey(name: "answer_list_id")
-      required final NullableStringModel answerListId}) = _$QuestionImpl;
+      required final NullableStringModel answerListId,
+      @JsonKey(name: "order_number") required final String orderNumber,
+      @JsonKey(name: "tab_number") required final String tabNumber,
+      @JsonKey(name: "tab_name")
+      required final String tabName}) = _$QuestionImpl;
 
   factory _Question.fromJson(Map<String, dynamic> json) =
       _$QuestionImpl.fromJson;
@@ -389,6 +463,15 @@ abstract class _Question implements QuestionModel {
   @override
   @JsonKey(name: "answer_list_id")
   NullableStringModel get answerListId;
+  @override
+  @JsonKey(name: "order_number")
+  String get orderNumber;
+  @override
+  @JsonKey(name: "tab_number")
+  String get tabNumber;
+  @override
+  @JsonKey(name: "tab_name")
+  String get tabName;
 
   /// Create a copy of QuestionModel
   /// with the given fields replaced by the non-null parameter values.

@@ -16,6 +16,9 @@ class QuestionModel with _$QuestionModel {
     @JsonKey(name: "related_question_id")
     required NullableStringModel relatedQuestionId,
     @JsonKey(name: "answer_list_id") required NullableStringModel answerListId,
+    @JsonKey(name: "order_number") required String orderNumber,
+    @JsonKey(name: "tab_number") required String tabNumber,
+    @JsonKey(name: "tab_name") required String tabName,
   }) = _Question;
 
   factory QuestionModel.fromJson(Map<String, dynamic> json) =>

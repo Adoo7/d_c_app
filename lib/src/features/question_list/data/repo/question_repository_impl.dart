@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:d_c_app/src/core/internet_services/data_state.dart';
 import 'package:d_c_app/src/features/question_list/data/data_sources/remote/question_api_service.dart';
 import 'package:d_c_app/src/features/question_list/data/models/answer_list.dart';
@@ -19,8 +21,10 @@ class QuestionRepositoryImpl implements QuestionRepository {
       String id) async {
     // This is just a placeholder implementation
     try {
-      final httpResponse = await _questionApiService.getAllQuestions();
-      final answerListResponse = await _questionApiService.getAllAnswerLists();
+      final httpResponse =
+          await _questionApiService.getQuestionListBySurveyId(id);
+      final answerListResponse =
+          await _questionApiService.getAnswerListsBySurveyId(id);
 
       if (httpResponse.response.statusCode == 200) {
         return DataSuccess(httpResponse.data.questions
@@ -57,6 +61,7 @@ class QuestionRepositoryImpl implements QuestionRepository {
 
   @override
   Future<DataState<List<QuestionEntity>>> getAllQuestions() async {
+    //never call this, it will return all questions from the server and crash the app
     try {
       final httpResponse = await _questionApiService.getAllQuestions();
       final answerListResponse = await _questionApiService.getAllAnswerLists();
@@ -130,6 +135,9 @@ extension QuestionModelMapper on QuestionModel {
       answerListId: answerListId.valid ? answerListId.value : null,
       surveyId: surveyId.valid ? surveyId.value : null,
       answerListEntity: answerListEntity,
+      orderNumber: orderNumber,
+      tabNumber: tabNumber,
+      tabName: tabName,
     );
   }
 }
@@ -144,9 +152,28 @@ extension AnswerModelMapper on AnswerListReponse {
   }
 }
 
-extension AnswerMapper on List<Answer> {
-  List<String> toEntity() {
-    return map((e) => e.answerText).toList();
+extension AnswerMapper on List<AnswerResponse> {
+  List<Answer> toEntity() {
+    return map((e) => Answer(
+          id: e.id,
+          answerText: e.answerText,
+          answerListId: e.answerListId,
+          relatedAnswerIds: e.relatedAnswerIds.valid
+              ? (jsonDecode(e.relatedAnswerIds.string) as List<dynamic>)
+                  .map((id) => id.toString())
+                  .toList()
+              : null,
+          parentAnswerIds: e.parentAnswerIds.valid
+              ? (jsonDecode(e.parentAnswerIds.string) as List<dynamic>)
+                  .map((id) => id.toString())
+                  .toList()
+              : null,
+          childAnswerIds: e.childAnswerIds.valid
+              ? (jsonDecode(e.childAnswerIds.string) as List<dynamic>)
+                  .map((id) => id.toString())
+                  .toList()
+              : null,
+        )).toList();
   }
 }
 
