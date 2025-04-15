@@ -306,11 +306,20 @@ class _QuestionWidgetState extends State<QuestionWidget> {
   }
 
   Widget _buildDropdownSelectQuestion() {
-    Answer? firstSelected = widget.question.answerListEntity?.answers
-        .firstWhereOrNull((a) => a.isSelected);
+    // Get the current answer from the answers map
+    String? currentAnswer = answers[widget.question.id];
 
-    firstSelected ??= widget.question.answerListEntity?.answers
-        .firstWhere((a) => a.isVisible);
+    // If we have a current answer, find the corresponding Answer object
+    Answer? currentAnswerObj = currentAnswer != null
+        ? widget.question.answerListEntity?.answers
+            .firstWhereOrNull((a) => a.answerText == currentAnswer)
+        : null;
+
+    // Only use the current answer if it exists and is visible
+    Answer? selectedAnswer =
+        (currentAnswerObj != null && currentAnswerObj.isVisible)
+            ? currentAnswerObj
+            : null;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
@@ -347,20 +356,27 @@ class _QuestionWidgetState extends State<QuestionWidget> {
                 vertical: 12.0,
               ),
             ),
-            value: firstSelected?.answerText,
+            value: selectedAnswer?.answerText,
+            hint: const Text("Select an option"),
             onChanged: (String? value) {
+              if (value == null) return;
+
               setState(() {
                 answers[widget.question.id] = value;
               });
 
-              selectAnswer(
-                  widget.question.id,
-                  widget.question.answerListEntity!.answers
-                      .firstWhere((a) => a.answerText == value));
+              // Find the answer object that matches the selected value
+              Answer? selectedAnswerObj = widget
+                  .question.answerListEntity?.answers
+                  .firstWhereOrNull((a) => a.answerText == value);
+
+              if (selectedAnswerObj != null) {
+                selectAnswer(widget.question.id, selectedAnswerObj);
+              }
 
               bloc.add(
                 QuestionEvent.answerQuestion(
-                  answer: {widget.question.id: value ?? 'error'},
+                  answer: {widget.question.id: value},
                   surveyId: widget.question.surveyId!,
                 ),
               );
@@ -587,6 +603,30 @@ class _QuestionWidgetState extends State<QuestionWidget> {
 
   void selectAnswer(String questionId, Answer answer) {
     try {
+      // Check if the answer is visible before filtering
+      if (!answer.isVisible) {
+        // If the answer is not visible, find the first visible answer
+        Answer? firstVisibleAnswer = widget.question.answerListEntity?.answers
+            .firstWhereOrNull((a) => a.isVisible);
+
+        if (firstVisibleAnswer != null) {
+          // Update the answer to the first visible one
+          setState(() {
+            answers[questionId] = firstVisibleAnswer.answerText;
+          });
+
+          // Use the first visible answer for filtering
+          sl<AnswerCubit>().filterAnswers(questionId, firstVisibleAnswer);
+        } else {
+          // If no visible answers, clear the selection
+          setState(() {
+            answers[questionId] = null;
+          });
+        }
+        return;
+      }
+
+      // If the answer is visible, proceed with normal filtering
       sl<AnswerCubit>().filterAnswers(questionId, answer);
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(

@@ -18,15 +18,31 @@ class AnswerCubit extends Cubit<AnswerState> {
     emit(AnswerState.filteringAnswers());
     // Add logic to filter other answers based on relatedAnswerId
     try {
-      //deselect answers in same answer list
+      // First, deselect all answers in the same answer list
+      for (var question in sl<QuestionBloc>().questions) {
+        if (question.answerListEntity != null &&
+            question.answerListEntity!.id == answer.answerListId) {
+          for (var _answer in question.answerListEntity!.answers) {
+            _answer.isSelected = (_answer.id == answer.id);
+          }
+        }
+      }
 
-      // If this answer has a childAnswerId, update the child answer with this answer's id
-      filterChildAnswers(questionId, answer);
-      // Add logic to update parent answers based on childAnswerId
-      // If this answer has a parentAnswerId, update the parent answer with this answer's id
-      // filterParentAnswers(questionId, answer);
+      // Check if this is a parent answer (has childAnswerIds)
+      bool isParentAnswer =
+          answer.childAnswerIds != null && answer.childAnswerIds!.isNotEmpty;
+
+      // If this is a parent answer, filter child answers
+      if (isParentAnswer) {
+        filterChildAnswers(questionId, answer);
+      }
+
+      // We don't filter parent answers when a child is selected
+      // This allows users to change parent options even after selecting a child
+
       // update state for answers with relatedAnswerId and filter with this answer's id
       fillRelatedAnswers(questionId, answer);
+
       emit(AnswerState.answerChanged());
     } catch (e) {
       sl<QuestionBloc>()
