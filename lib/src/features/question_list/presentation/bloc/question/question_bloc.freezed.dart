@@ -1797,7 +1797,9 @@ mixin _$QuestionState {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1814,7 +1816,9 @@ mixin _$QuestionState {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1831,7 +1835,9 @@ mixin _$QuestionState {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1965,7 +1971,9 @@ class _$InitialImpl implements _Initial {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return initial();
   }
@@ -1985,7 +1993,9 @@ class _$InitialImpl implements _Initial {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return initial?.call();
   }
@@ -2005,7 +2015,9 @@ class _$InitialImpl implements _Initial {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -2138,7 +2150,9 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return loadInProgress();
   }
@@ -2158,7 +2172,9 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return loadInProgress?.call();
   }
@@ -2178,7 +2194,9 @@ class _$LoadInProgressImpl implements _LoadInProgress {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (loadInProgress != null) {
@@ -2357,7 +2375,9 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return loadSuccess(questions, loadAnswers);
   }
@@ -2377,7 +2397,9 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return loadSuccess?.call(questions, loadAnswers);
   }
@@ -2397,7 +2419,9 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
@@ -2568,7 +2592,9 @@ class _$LoadFailureImpl implements _LoadFailure {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return loadFailure(error);
   }
@@ -2588,7 +2614,9 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return loadFailure?.call(error);
   }
@@ -2608,7 +2636,9 @@ class _$LoadFailureImpl implements _LoadFailure {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (loadFailure != null) {
@@ -2749,7 +2779,9 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return answerChanged();
   }
@@ -2769,7 +2801,9 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return answerChanged?.call();
   }
@@ -2789,7 +2823,9 @@ class _$AnswerChangedImpl implements _AnswerChanged {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -2922,7 +2958,9 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return answerSavedError();
   }
@@ -2942,7 +2980,9 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return answerSavedError?.call();
   }
@@ -2962,7 +3002,9 @@ class _$AnswerSavedErrorImpl implements _AnswerSavedError {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (answerSavedError != null) {
@@ -3095,7 +3137,9 @@ class _$AnswerSaveImpl implements _AnswerSave {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return answerSaved();
   }
@@ -3115,7 +3159,9 @@ class _$AnswerSaveImpl implements _AnswerSave {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return answerSaved?.call();
   }
@@ -3135,7 +3181,9 @@ class _$AnswerSaveImpl implements _AnswerSave {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (answerSaved != null) {
@@ -3271,7 +3319,9 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return answerSubmittedSuccess();
   }
@@ -3291,7 +3341,9 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return answerSubmittedSuccess?.call();
   }
@@ -3311,7 +3363,9 @@ class _$AnswerSubmittedSuccessImpl implements _AnswerSubmittedSuccess {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedSuccess != null) {
@@ -3474,7 +3528,9 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return answerSubmittedFailure(error);
   }
@@ -3494,7 +3550,9 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return answerSubmittedFailure?.call(error);
   }
@@ -3514,7 +3572,9 @@ class _$AnswerSubmittedFailureImpl implements _AnswerSubmittedFailure {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedFailure != null) {
@@ -3659,7 +3719,9 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return answerSubmittedInProgress();
   }
@@ -3679,7 +3741,9 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return answerSubmittedInProgress?.call();
   }
@@ -3699,7 +3763,9 @@ class _$AnswerSubmittedInProgressImpl implements _AnswerSubmittedInProgress {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (answerSubmittedInProgress != null) {
@@ -3860,7 +3926,9 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
     return snackBarShowing(message);
   }
@@ -3880,7 +3948,9 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
     return snackBarShowing?.call(message);
   }
@@ -3900,7 +3970,9 @@ class _$SnackBarShowingImpl implements _SnackBarShowing {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (snackBarShowing != null) {
@@ -3994,7 +4066,7 @@ abstract class _$$ValidationErrorsImplCopyWith<$Res> {
           $Res Function(_$ValidationErrorsImpl) then) =
       __$$ValidationErrorsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<String> missingQuestionIds});
+  $Res call({List<String> missingQuestionIds, String? firstMissingQuestionId});
 }
 
 /// @nodoc
@@ -4011,12 +4083,17 @@ class __$$ValidationErrorsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? missingQuestionIds = null,
+    Object? firstMissingQuestionId = freezed,
   }) {
     return _then(_$ValidationErrorsImpl(
       null == missingQuestionIds
           ? _value._missingQuestionIds
           : missingQuestionIds // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      firstMissingQuestionId: freezed == firstMissingQuestionId
+          ? _value.firstMissingQuestionId
+          : firstMissingQuestionId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -4024,7 +4101,8 @@ class __$$ValidationErrorsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ValidationErrorsImpl implements _ValidationErrors {
-  const _$ValidationErrorsImpl(final List<String> missingQuestionIds)
+  const _$ValidationErrorsImpl(final List<String> missingQuestionIds,
+      {this.firstMissingQuestionId})
       : _missingQuestionIds = missingQuestionIds;
 
   final List<String> _missingQuestionIds;
@@ -4037,8 +4115,11 @@ class _$ValidationErrorsImpl implements _ValidationErrors {
   }
 
   @override
+  final String? firstMissingQuestionId;
+
+  @override
   String toString() {
-    return 'QuestionState.validationErrors(missingQuestionIds: $missingQuestionIds)';
+    return 'QuestionState.validationErrors(missingQuestionIds: $missingQuestionIds, firstMissingQuestionId: $firstMissingQuestionId)';
   }
 
   @override
@@ -4047,12 +4128,16 @@ class _$ValidationErrorsImpl implements _ValidationErrors {
         (other.runtimeType == runtimeType &&
             other is _$ValidationErrorsImpl &&
             const DeepCollectionEquality()
-                .equals(other._missingQuestionIds, _missingQuestionIds));
+                .equals(other._missingQuestionIds, _missingQuestionIds) &&
+            (identical(other.firstMissingQuestionId, firstMissingQuestionId) ||
+                other.firstMissingQuestionId == firstMissingQuestionId));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_missingQuestionIds));
+      runtimeType,
+      const DeepCollectionEquality().hash(_missingQuestionIds),
+      firstMissingQuestionId);
 
   /// Create a copy of QuestionState
   /// with the given fields replaced by the non-null parameter values.
@@ -4078,9 +4163,11 @@ class _$ValidationErrorsImpl implements _ValidationErrors {
     required TResult Function(String error) answerSubmittedFailure,
     required TResult Function() answerSubmittedInProgress,
     required TResult Function(String message) snackBarShowing,
-    required TResult Function(List<String> missingQuestionIds) validationErrors,
+    required TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)
+        validationErrors,
   }) {
-    return validationErrors(missingQuestionIds);
+    return validationErrors(missingQuestionIds, firstMissingQuestionId);
   }
 
   @override
@@ -4098,9 +4185,11 @@ class _$ValidationErrorsImpl implements _ValidationErrors {
     TResult? Function(String error)? answerSubmittedFailure,
     TResult? Function()? answerSubmittedInProgress,
     TResult? Function(String message)? snackBarShowing,
-    TResult? Function(List<String> missingQuestionIds)? validationErrors,
+    TResult? Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
   }) {
-    return validationErrors?.call(missingQuestionIds);
+    return validationErrors?.call(missingQuestionIds, firstMissingQuestionId);
   }
 
   @override
@@ -4118,11 +4207,13 @@ class _$ValidationErrorsImpl implements _ValidationErrors {
     TResult Function(String error)? answerSubmittedFailure,
     TResult Function()? answerSubmittedInProgress,
     TResult Function(String message)? snackBarShowing,
-    TResult Function(List<String> missingQuestionIds)? validationErrors,
+    TResult Function(
+            List<String> missingQuestionIds, String? firstMissingQuestionId)?
+        validationErrors,
     required TResult orElse(),
   }) {
     if (validationErrors != null) {
-      return validationErrors(missingQuestionIds);
+      return validationErrors(missingQuestionIds, firstMissingQuestionId);
     }
     return orElse();
   }
@@ -4195,10 +4286,11 @@ class _$ValidationErrorsImpl implements _ValidationErrors {
 }
 
 abstract class _ValidationErrors implements QuestionState {
-  const factory _ValidationErrors(final List<String> missingQuestionIds) =
-      _$ValidationErrorsImpl;
+  const factory _ValidationErrors(final List<String> missingQuestionIds,
+      {final String? firstMissingQuestionId}) = _$ValidationErrorsImpl;
 
   List<String> get missingQuestionIds;
+  String? get firstMissingQuestionId;
 
   /// Create a copy of QuestionState
   /// with the given fields replaced by the non-null parameter values.

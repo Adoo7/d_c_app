@@ -18,6 +18,6 @@ class QuestionState with _$QuestionState {
       _AnswerSubmittedInProgress;
   const factory QuestionState.snackBarShowing(String message) =
       _SnackBarShowing;
-  const factory QuestionState.validationErrors(
-      List<String> missingQuestionIds) = _ValidationErrors;
+  const factory QuestionState.validationErrors(List<String> missingQuestionIds,
+      {String? firstMissingQuestionId}) = _ValidationErrors;
 }

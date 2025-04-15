@@ -26,6 +26,7 @@ class _QuestionWidgetState extends State<QuestionWidget> {
   Map<String, dynamic> answers = {};
   final bloc = sl<QuestionBloc>();
   bool hasValidationError = false;
+  final GlobalKey _questionKey = GlobalKey();
 
   @override
   void initState() {
@@ -51,13 +52,27 @@ class _QuestionWidgetState extends State<QuestionWidget> {
       bloc: bloc,
       listener: (context, state) {
         state.maybeWhen(
-          validationErrors: (missingQuestionIds) {
+          validationErrors: (missingQuestionIds, firstMissingQuestionId) {
             setState(() {
               hasValidationError =
                   missingQuestionIds.contains(widget.question.id) &&
                       widget.question.required &&
                       (answers[widget.question.id] == null ||
                           answers[widget.question.id].toString().isEmpty);
+
+              // If this is the first missing question, scroll to it
+              if (firstMissingQuestionId == widget.question.id &&
+                  hasValidationError) {
+                // Use a post-frame callback to ensure the widget is built
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  Scrollable.ensureVisible(
+                    _questionKey.currentContext!,
+                    alignment: 0.0,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.easeInOut,
+                  );
+                });
+              }
             });
           },
           orElse: () {},
@@ -70,6 +85,14 @@ class _QuestionWidgetState extends State<QuestionWidget> {
   }
 
   Widget _buildQuestionWidget() {
+    // Wrap the question widget with a container that has a key for scrolling
+    return Container(
+      key: _questionKey,
+      child: _buildQuestionContent(),
+    );
+  }
+
+  Widget _buildQuestionContent() {
     switch (QuestionTypeExtension.fromString(widget.question.answerType)) {
       case QuestionTypeEnum.bool:
         return _buildBooleanQuestion(context);

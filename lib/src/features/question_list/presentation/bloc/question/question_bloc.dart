@@ -85,6 +85,13 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           // save answer to local storage
         },
         submitAnswers: (e) async {
+          // Check if any answers are provided
+          if (answers.isEmpty) {
+            emit(QuestionState.snackBarShowing(
+                'You must answer at least one question'));
+            return;
+          }
+
           // First validate required questions
           List<String> missingRequiredQuestionIds = [];
 
@@ -98,9 +105,27 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           }
 
           if (missingRequiredQuestionIds.isNotEmpty) {
-            emit(QuestionState.validationErrors(missingRequiredQuestionIds));
-            emit(QuestionState.snackBarShowing(
-                'Please answer all required questions'));
+            // Get the first missing question ID for scrolling
+            String? firstMissingQuestionId =
+                missingRequiredQuestionIds.isNotEmpty
+                    ? missingRequiredQuestionIds.first
+                    : null;
+
+            emit(QuestionState.validationErrors(
+              missingRequiredQuestionIds,
+              firstMissingQuestionId: firstMissingQuestionId,
+            ));
+
+            // Create a more descriptive message
+            String message;
+            if (missingRequiredQuestionIds.length == 1) {
+              message = 'Missed a required question';
+            } else {
+              message =
+                  'Missed ${missingRequiredQuestionIds.length} required questions';
+            }
+
+            emit(QuestionState.snackBarShowing(message));
             return;
           }
 
@@ -140,9 +165,27 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           }
 
           if (missingRequiredQuestionIds.isNotEmpty) {
-            emit(QuestionState.validationErrors(missingRequiredQuestionIds));
-            emit(QuestionState.snackBarShowing(
-                'Please answer all required questions'));
+            // Get the first missing question ID for scrolling
+            String? firstMissingQuestionId =
+                missingRequiredQuestionIds.isNotEmpty
+                    ? missingRequiredQuestionIds.first
+                    : null;
+
+            emit(QuestionState.validationErrors(
+              missingRequiredQuestionIds,
+              firstMissingQuestionId: firstMissingQuestionId,
+            ));
+
+            // Create a more descriptive message
+            String message;
+            if (missingRequiredQuestionIds.length == 1) {
+              message = 'Missed a required question';
+            } else {
+              message =
+                  'Missed ${missingRequiredQuestionIds.length} required questions';
+            }
+
+            emit(QuestionState.snackBarShowing(message));
           }
         },
         showSnackBar: (e) async {
@@ -164,5 +207,11 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         },
       );
     });
+  }
+
+  // Method to clear all answers
+  void clearAllAnswers() {
+    answers.clear();
+    questions.clear();
   }
 }

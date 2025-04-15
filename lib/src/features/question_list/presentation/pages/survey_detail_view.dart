@@ -14,13 +14,26 @@ class SurveyViewParams {
   final String surveyName;
 }
 
-class SurveyDetailView extends StatelessWidget {
+class SurveyDetailView extends StatefulWidget {
   SurveyDetailView(
       {super.key, required this.surveyId, required this.viewParams});
 
-  final bloc = sl<QuestionBloc>();
   final String surveyId;
   final SurveyViewParams viewParams;
+
+  @override
+  State<SurveyDetailView> createState() => _SurveyDetailViewState();
+}
+
+class _SurveyDetailViewState extends State<SurveyDetailView> {
+  final bloc = sl<QuestionBloc>();
+
+  @override
+  void dispose() {
+    // Clear answers when the view is disposed
+    bloc.clearAllAnswers();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +48,7 @@ class SurveyDetailView extends StatelessWidget {
           FloatingActionButton.small(
               heroTag: 'loadAnswers',
               onPressed: () {
-                bloc.add(QuestionEvent.loadAnswersFromBloc(surveyId));
+                bloc.add(QuestionEvent.loadAnswersFromBloc(widget.surveyId));
               },
               child: const Icon(Icons.restore)),
           FloatingActionButton.small(
@@ -48,12 +61,13 @@ class SurveyDetailView extends StatelessWidget {
         ],
       ),
       body: BlocConsumer<QuestionBloc, QuestionState>(
-          bloc: bloc..add(QuestionEvent.fetchQuestionListBySurveyId(surveyId)),
+          bloc: bloc
+            ..add(QuestionEvent.fetchQuestionListBySurveyId(widget.surveyId)),
           listenWhen: (previous, current) => current.maybeWhen(
               answerSaved: () => true,
               answerSavedError: () => true,
               snackBarShowing: (_) => true,
-              validationErrors: (_) => true,
+              validationErrors: (_, __) => true,
               orElse: () => false),
           listener: (_context, state) => state.maybeMap(
                 answerSavedError: (value) => ScaffoldMessenger.of(context)
@@ -96,8 +110,8 @@ class SurveyDetailView extends StatelessWidget {
                 loadInProgress: () => InitialLoadingView(),
                 loadSuccess: (questions, loadAnswers) => QuestionList(
                   questions: questions,
-                  title: viewParams.projectName,
-                  subtitle: viewParams.surveyName,
+                  title: widget.viewParams.projectName,
+                  subtitle: widget.viewParams.surveyName,
                   loadAnswers: loadAnswers,
                 ),
                 loadFailure: (_) =>
